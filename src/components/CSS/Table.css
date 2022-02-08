@@ -1,0 +1,136 @@
+.table {
+  /* Table */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: relative;
+  width: 668px;
+  height: 274px;
+}
+
+.headerbox {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 57px;
+
+  position: static;
+  width: 202px;
+  height: 40px;
+  left: 0px;
+  top: 0px;
+
+  /* Rose */
+
+  background: #fa728b;
+  /* Grey */
+
+  border: 1px solid #91acab;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 6px 0px;
+}
+
+.textbox {
+  /* Text box */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 9px 19px;
+
+  position: static;
+  width: 200px;
+  height: 40px;
+  left: 0px;
+  top: 46px;
+
+  /* Coral */
+
+  background: #fff7f7;
+  /* Grey */
+
+  border: 1px solid #91acab;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 6px 0px;
+}
+
+.headertext {
+  /* Header */
+
+  position: static;
+  width: 197px;
+  height: 30px;
+  left: 2.5px;
+  top: 5px;
+
+  /* Header 3 */
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25.92px;
+  line-height: 30px;
+  text-align: justify;
+  letter-spacing: -0.02em;
+
+  color: #162b2a;
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}
+
+.boxtext {
+  /* Text */
+
+  position: static;
+  width: 33px;
+  height: 22px;
+  left: 19px;
+  top: 9px;
+
+  /* Body */
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: justify;
+  /* or 22px */
+
+  color: #162b2a;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 10px;
+}

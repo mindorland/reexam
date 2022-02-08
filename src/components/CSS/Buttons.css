@@ -1,0 +1,81 @@
+/* ------- Primary button ------- */
+
+.primary {
+  position: static;
+  width: 140px;
+  height: 38px;
+  left: 0px;
+  top: 0px;
+  background: #fa728b;
+  border: 1px solid #162b2a;
+  box-sizing: border-box;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+/* ------- Secondary button ------- */
+
+.secondary {
+  position: static;
+  width: 140px;
+  height: 38px;
+  left: 0px;
+  top: 46px;
+  background: #6ad7e2;
+  border: 1px solid #162b2a;
+  box-sizing: border-box;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+/* ------- Cancel button ------- */
+
+.cancel {
+  position: static;
+  width: 140px;
+  height: 38px;
+  left: 0px;
+  top: 92px;
+  background: #ffe2e2;
+  border: 1px solid #162b2a;
+  box-sizing: border-box;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+/* ------- Extra button ------- */
+
+.extra {
+  position: static;
+  width: 140px;
+  height: 38px;
+  left: 0px;
+  top: 138px;
+  background: #daf2f4;
+  border: 1px solid #162b2a;
+  box-sizing: border-box;
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+  margin: 8px 0px;
+}
+
+/* ------- Button text ------- */
+
+.buttontext {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9.87654px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+  color: #162b2a;
+}

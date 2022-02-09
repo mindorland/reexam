@@ -11,6 +11,10 @@ export default function InfoWrite(props) {
   const [location, setLocation] = useState();
   const [description, setDescription] = useState();
 
+  //To convert data values to corresponding data types
+  const startDateValue = new Date(startDate);
+  const endDateValue = new Date(endDate);
+
   const navigate = useNavigate();
 
   function handleRegister(e) {

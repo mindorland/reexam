@@ -70,3 +70,9 @@
   span {
     margin-left: 16px;
   }
+
+  .username-text {
+      color: white;
+      margin-top: 100px;
+      list-style-type:none;
+  }

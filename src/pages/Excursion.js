@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 function Excursion() {    
     return (            
         <div className='excursion'>
-            <InfoRead />
+            <InfoWrite />
         </div>
     )
 }

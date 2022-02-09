@@ -36,7 +36,7 @@
   color: #162b2a;
   padding-bottom: 50px;
   position: static;
-  width: 400 px;
+  width: 300 px;
   height: 80px;
   left: 45px;
   top: 59px;
@@ -52,7 +52,7 @@
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 10px 0px;
+  margin: 0px 0px;
 }
 
 .nav-text {

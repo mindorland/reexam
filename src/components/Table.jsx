@@ -8,11 +8,15 @@ import {
   PlusOutlined,
   RedoOutlined,
 } from "@ant-design/icons";
-import ListBody from "antd/lib/transfer/ListBody";
 
 export const Table = () => {
   // State variables
-  const [readResults, setReadResults] = useState([]);
+  const [readResults, setReadResults] = useState({
+    title: "",
+    unit: "",
+    quantity: "",
+    delete: "",
+  });
   const [newShoppingTitle, setNewShoppingTitle] = useState("");
   const [newQuantity, setNewQuantity] = useState("");
   const [newUnit, setNewUnit] = useState("");
@@ -64,7 +68,7 @@ export const Table = () => {
     let Shopping = new Parse.Object("Shopping");
     Shopping.set("objectId", shoppingId);
     // Set new done value and save Parse Object changes
-    Shopping.set("done", done);
+
     try {
       await Shopping.save();
       // Success
@@ -113,7 +117,7 @@ export const Table = () => {
         <table>
           <thead>
             <tr>
-              <th>Item</th>
+              <th>Title</th>
               <th>Quantity</th>
               <th>Unit</th>
               <th>Delete</th>
@@ -122,13 +126,16 @@ export const Table = () => {
           <tbody>
             {/* Shopping read results list */}
 
+            <tr>
+              <td></td>
+            </tr>
             {readResults !== null &&
               readResults !== undefined &&
               readResults.length > 0 && (
                 <List
                   dataSource={readResults}
                   renderItem={(item) => (
-                    <tr>
+                    <div>
                       <td>{item.get("title")}</td>
 
                       <td>{item.get("unit")}</td>
@@ -146,7 +153,7 @@ export const Table = () => {
                           }
                         ></Button>
                       </td>
-                    </tr>
+                    </div>
                   )}
                 />
               )}

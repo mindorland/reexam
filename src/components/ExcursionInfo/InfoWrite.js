@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import Parse from 'parse/dist/parse.min.js';
+import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -16,22 +16,24 @@ export default function InfoWrite(props) {
   function handleRegister(e) {
     e.preventDefault();
 
-    const Excursion = new Parse.Object.extend('Excursion'); //create a new Parse Object subclass
+    const Excursion = new Parse.Object.extend("Excursion"); //create a new Parse Object subclass
     const excursion = new Excursion(); // Create a new instance of that Excursion class
 
-    excursion.set('title', title);
-    excursion.set('startDate', startDate);
-    excursion.set('endDate', endDate);
-    excursion.set('location', location);
-    excursion.set('description', description);
+    excursion.set("title", title);
+    excursion.set("startDate", startDate);
+    excursion.set("endDate", endDate);
+    excursion.set("location", location);
+    excursion.set("description", description);
 
-    excursion.save()
-    .then((excursion)=> {
-      navigate('/excursion');
-      alert('New object created with objectId: '+ excursion.id);
-    }, (error) => {
-      alert('Failed to create new object' + error.message);
-    })
+    excursion.save().then(
+      (excursion) => {
+        navigate("/excursion");
+        alert("New object created with objectId: " + excursion.id);
+      },
+      (error) => {
+        alert("Failed to create new object" + error.message);
+      }
+    );
   }
 
   return (

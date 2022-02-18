@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const navigate = useNavigate();
@@ -14,7 +15,9 @@ export default function SignUp() {
     const user = new Parse.User();
     user.setUsername(username);
     user.setPassword(password);
+    user.set("name", name);
     user.setEmail(email);
+
     try {
       await user.signUp();
     } catch (error) {
@@ -28,6 +31,10 @@ export default function SignUp() {
   }
   function passwordChange(e) {
     setPassword(e.target.value);
+  }
+
+  function nameChange(e) {
+    setName(e.target.value);
   }
 
   function emailChange(e) {
@@ -54,6 +61,15 @@ export default function SignUp() {
           type="password"
           placeholder="Password"
           onChange={passwordChange}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicName">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter full name"
+          onChange={nameChange}
         />
       </Form.Group>
 

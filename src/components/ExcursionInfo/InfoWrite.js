@@ -10,10 +10,31 @@ export default function InfoWrite(props) {
   const [endDate, setEndDate] = useState();
   const [location, setLocation] = useState();
   const [description, setDescription] = useState();
+  const [imageFile, setImageFile] = useState();
+  const [isUploading, setIsUploading] = useState(false);
+
+  //To convert data values to corresponding data types
+  const startDateValue = new Date(startDate);
+  const endDateValue = new Date(endDate);
 
   const navigate = useNavigate();
 
-  function handleRegister(e) {
+  function handleFileUpload(e) {
+    setImageFile(e.target.files[0]);
+  }
+
+  async function handleUpload(e) {
+    e.preventDefault();
+    setIsUploading(true);
+
+    navigate("/myimages");
+  }
+
+  if (isUploading) {
+    return "Uploading...";
+  }
+
+  async function handleRegister(e) {
     e.preventDefault();
 
     const Excursion = new Parse.Object.extend("Excursion"); //create a new Parse Object subclass
@@ -24,6 +45,16 @@ export default function InfoWrite(props) {
     excursion.set("endDate", endDate);
     excursion.set("location", location);
     excursion.set("description", description);
+
+    /*
+    This is to save a picture
+    */
+    const Image = Parse.Object.extend("Image");
+    const newImage = new Image();
+
+    const file = new Parse.File(imageFile.name, imageFile);
+    newImage.set("file", file);
+    await excursion.set("image", newImage);
 
     excursion.save().then(
       (excursion) => {
@@ -39,6 +70,15 @@ export default function InfoWrite(props) {
   return (
     <div className="pageContent">
       <h1>Create an excursion</h1>
+
+      {imageFile && (
+        <img
+          alt=""
+          style={{ maxWidth: "400px" }}
+          src={URL.createObjectURL(imageFile)}
+        />
+      )}
+
       <Form>
         <Form.Group className="mb-3" controlId="formBasicUsername">
           <Form.Label>Title</Form.Label>
@@ -78,6 +118,25 @@ export default function InfoWrite(props) {
             placeholder="Description"
           />
         </Form.Group>
+        {!imageFile && (
+          <Form.Group controlId="formFile" className="mb-3">
+            <Form.Label>Select an image from your computer</Form.Label>
+            <Form.Control onChange={handleFileUpload} type="file" />
+          </Form.Group>
+        )}
+        {imageFile && (
+          <Button variant="link" onClick={() => setImageFile()}>
+            Select another image
+          </Button>
+        )}
+        <Button
+          onClick={handleUpload}
+          disabled={!imageFile}
+          variant="primary"
+          type="submit"
+        >
+          Upload
+        </Button>
         <Button onClick={handleRegister} variant="primary" type="submit">
           Submit
         </Button>

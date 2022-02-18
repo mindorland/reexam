@@ -6,18 +6,13 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import Cars from "./pages/Cars";
+import Cars from "./pages/Cars/Cars";
+import Driver from "./pages/Cars/Driver";
+import Rider from "./pages/Cars/Rider";
+import DriverStatus from "./pages/Cars/DriverStatus";
+import RiderStatus from "./pages/Cars/RiderStatus";
 import Shopping from "./pages/Shopping";
 import Excursion from "./pages/Excursion";
-import Table from "./components/Table";
-import Buttons from "./components/Buttons";
-import Parse from "parse/dist/parse.min.js";
-Parse.initialize(
-  "ov1tNGhqHPywaMy5xrh9BcBJaprgHK7pa5NttJbv", //application ID
-  "54x16soSKNHvYjpe8320xHwlVz3wtEOU2zoxE0UO" // Javascript key
-);
-
-Parse.serverURL = "https://parseapi.back4app.com/";
 
 function App() {
   return (
@@ -31,6 +26,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/excursion" element={<Excursion />} />
+          <Route path="/cars/driver" element={<Driver />} />
+          <Route path="/cars/rider" element={<Rider />} />
+          <Route path="/cars/driverstatus" element={<DriverStatus />} />
+          <Route path="/cars/riderstatus" element={<RiderStatus />} />
           <Route path="/cars" element={<Cars />} />
           <Route path="/shopping" element={<Shopping />} />
         </Routes>

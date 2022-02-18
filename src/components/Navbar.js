@@ -11,11 +11,23 @@ function Navbar() {
   //   const showSidebar = () => setSidebar(!sidebar)
   const navigate = useNavigate();
 
-  function handleSignOut(e) {
-    e.preventDefault();
-    Parse.User.logOut().then(() => {
+  async function handleSignOut(e) {
+    try {
       navigate("/");
-    });
+      window.location.reload(true);
+      await Parse.User.logOut();
+      // To verify that current user is now empty, currentAsync can be used
+      const currentUser = await Parse.User.current();
+      if (currentUser === null) {
+        alert("Success! No user is logged in anymore!");
+      }
+      // Update state variable holding current user
+      // getCurrentUser();
+      return true;
+    } catch (error) {
+      alert(`Error! ${error.message}`);
+      return false;
+    }
   }
 
   return (
@@ -30,7 +42,7 @@ function Navbar() {
           {!Parse.User.current() && ( //when the user is not logged in.
             <>
               <ul className="nav-menu-items">
-                <li className="nav-title">
+                <li className="nav-text">
                   <Link to="/">AsoPlan</Link>
                 </li>
                 <li className="nav-text">
@@ -38,6 +50,31 @@ function Navbar() {
                 </li>
                 <li className="nav-text">
                   <Link to="/login">LogIn</Link>
+                </li>
+              </ul>
+            </>
+          )}
+
+          {Parse.User.current() && ( //when the user is logged in.
+            <>
+              <ul className="nav-menu-items">
+                <li className="nav-text">
+                  <Link to="/">AsoPlan</Link>
+                </li>
+                <li className="nav-text">
+                  <Link to="/excursion">Excursion</Link>
+                </li>
+                <li className="nav-text">
+                  <Link to="/cars">Cars</Link>
+                </li>
+                <li className="nav-text">
+                  <Link to="/shopping">Shopping</Link>
+                </li>
+                <li className="username-text">
+                  Hello, {Parse.User.current().get("name")}
+                </li>
+                <li className="nav-text">
+                  <button onClick={handleSignOut}>Logout</button>
                 </li>
               </ul>
             </>

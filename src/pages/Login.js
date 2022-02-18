@@ -23,7 +23,7 @@ export default function Login(props) {
 
   return (
     <div className="pageContent">
-      <div className="container">
+      <div className="logincontainer">
         <h1 className="header">Login</h1>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicUsername">

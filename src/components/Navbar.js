@@ -77,7 +77,7 @@ function Navbar() {
           </>
         )}
 
-        {Parse.User.current() && ( //when the user is logged in.
+        {/* {Parse.User.current() && ( //when the user is logged in.
           <>
             <ul className="nav-menu-items">
               {SidebarData.map((item, index) => {
@@ -91,7 +91,7 @@ function Navbar() {
               })}
             </ul>
           </>
-        )}
+        )} */}
       </nav>
     </>
   );

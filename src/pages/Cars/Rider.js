@@ -11,13 +11,21 @@ function Rider() {
   const [status, setStatus] = useState("requested")
   const navigate = useNavigate()
   const [drives, setDrives] = useState()
+  const [drivers, setDrivers] = useState()
 
   const requestsValue = Number(requests) //to convert data value to Number
 
+  //to reload the page with the avilable rides info
   useEffect(() => {
     if (!drives) {
       getDrives()
     }
+  }, [])
+
+  useEffect(() => {
+      if (!drivers) {
+          getDrivers()
+      }
   }, [])
 
   const getDrives = async () => {
@@ -29,11 +37,20 @@ function Rider() {
     setDrives(results)
     console.log(results[0].get("remainingSeats"))
     console.log(results[0].id)
-    console.log(
-      results[0].get("driver").then((driver) => {
-        driver.get("username")
-      })
-    )
+    console.log(results[0].get("driver").id)
+    // console.log(drivers[0])
+    // console.log(drivers.get(results[0].get("driver").id).username)
+  }
+
+  const getDrivers = async() => {
+    /*
+    This is to experiment how to query username. 
+    */
+    const Users = new Parse.Object.extend("User")
+    const userQuery = new Parse.Query(Users)
+    const results = await userQuery.find()
+    setDrivers(results)
+    console.log(results)
   }
 
   function handleSave(e) {
@@ -55,7 +72,9 @@ function Rider() {
         <ul>
           {drives.map((drive) => (
             <li key={drive.id}>
-              {drive.get("driver").get("name")} shares {drive.get("remainingSeats")} seats.
+
+            {drive.get("driver").id} shares {drive.get("remainingSeats")} seats.
+
             </li>
           ))}
         </ul>

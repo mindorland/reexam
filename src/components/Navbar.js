@@ -71,27 +71,13 @@ function Navbar() {
                             <Link to="/shopping">Shopping</Link>   
                         </li>
                         <li className="username-text">
-                            Hello, {Parse.User.current().get('username')}   
+                            Hello, {Parse.User.current().get('name')}   
                         </li>
                         <li className="nav-text">
                             <button onClick={handleSignOut}>Logout</button>
                         </li>
                     </ul>
                 </>
-                // <>
-                //     <ul className="nav-menu-items">
-                //         {SidebarData.map((item, index) => {
-
-                //         return (
-                //             <li key={index} className={item.cName}>
-                //             <Link to={item.path}>
-                //                 <span>{item.title}</span>
-                //             </Link>
-                //             </li>
-                //         )
-                //         })}
-                //     </ul>
-                // </>
             )}
 
         </nav>

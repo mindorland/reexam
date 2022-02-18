@@ -103,32 +103,32 @@ export const Table = () => {
 
   return (
     <div>
-      <div className="container">
-        {/* To-do read (refresh) button */}
-        <Button
-          type="primary"
-          shape="circle"
-          color={"#208AEC"}
-          size={"default"}
-          onClick={readShoppings}
-          icon={<RedoOutlined />}
-        ></Button>
+      {/* To-do read (refresh) button */}
+      /*{" "}
+      <Button
+        type="primary"
+        shape="circle"
+        color={"#208AEC"}
+        size={"default"}
+        onClick={readShoppings}
+        icon={<RedoOutlined />}
+      ></Button>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Shopping read results list*/}
 
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Quantity</th>
-              <th>Unit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* Shopping read results list */}
-
-            <tr>
-              <td></td>
-            </tr>
+          <tr>
+            <td></td>
+          </tr>
+          <tr>
             {readResults !== null &&
               readResults !== undefined &&
               readResults.length > 0 && (
@@ -137,11 +137,10 @@ export const Table = () => {
                   renderItem={(item) => (
                     <div>
                       <td>{item.get("title")}</td>
-
                       <td>{item.get("unit")}</td>
                       <td>{item.get("quantity")}</td>
 
-                      {/* Shopping delete button */}
+                      {/* Shopping delete button*/}
                       <td>
                         <Button
                           type="primary"
@@ -157,52 +156,52 @@ export const Table = () => {
                   )}
                 />
               )}
+          </tr>
 
-            <tr>
-              {/* Shopping create text input */}
-              <th>
-                <Input
-                  value={newShoppingTitle}
-                  onChange={(event) => setNewShoppingTitle(event.target.value)}
-                  placeholder="New Shopping"
-                  size="large"
-                />{" "}
-              </th>
-              <th>
-                <Input
-                  value={newQuantity}
-                  onChange={(event) => setNewQuantity(event.target.value)}
-                  placeholder="New Quantity"
-                  size="large"
-                />
-              </th>
-              <th>
-                <Input
-                  value={newUnit}
-                  onChange={(event) => setNewUnit(event.target.value)}
-                  placeholder="New Unit"
-                  size="large"
-                />
-              </th>
+          <tr>
+            {/* Shopping create text input */}
+            <th>
+              <Input
+                value={newShoppingTitle}
+                onChange={(event) => setNewShoppingTitle(event.target.value)}
+                placeholder="New Shopping"
+                size="large"
+              />{" "}
+            </th>
+            <th>
+              <Input
+                value={newQuantity}
+                onChange={(event) => setNewQuantity(event.target.value)}
+                placeholder="New Quantity"
+                size="large"
+              />
+            </th>
+            <th>
+              <Input
+                value={newUnit}
+                onChange={(event) => setNewUnit(event.target.value)}
+                placeholder="New Unit"
+                size="large"
+              />
+            </th>
 
-              {/* Shopping create button */}
+            {/* Shopping create button*/}
 
-              <th>
-                <Button
-                  type="primary"
-                  className="create_Shopping_button"
-                  color={"#208AEC"}
-                  size={"large"}
-                  onClick={createShopping}
-                  icon={<PlusOutlined />}
-                >
-                  Add
-                </Button>
-              </th>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <th>
+              <Button
+                type="primary"
+                className="create_Shopping_button"
+                color={"#208AEC"}
+                size={"large"}
+                onClick={createShopping}
+                icon={<PlusOutlined />}
+              >
+                Add
+              </Button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

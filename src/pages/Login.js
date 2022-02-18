@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import "./Login.css";
 
 export default function Login(props) {
   const [username, setUsername] = useState();
@@ -22,32 +23,34 @@ export default function Login(props) {
 
   return (
     <div className="pageContent">
-      <h1>Login</h1>
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-            autoFocus
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Button onClick={handleLoginAttempt} variant="primary" type="submit">
-          Submit
-        </Button>
-        <br />
-        <br />
-        Don't have an account? <Link to="/signup"> Create one!</Link>
-      </Form>
+      <div className="container">
+        <h1 className="header">Login</h1>
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicUsername">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+              autoFocus
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+          </Form.Group>
+          <Button onClick={handleLoginAttempt} variant="primary" type="submit">
+            Submit
+          </Button>
+          <br />
+          <br />
+          Don't have an account? <Link to="/signup"> Create one!</Link>
+        </Form>
+      </div>
     </div>
   );
 }

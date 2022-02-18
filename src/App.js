@@ -13,14 +13,13 @@ import DriverStatus from "./pages/Cars/DriverStatus";
 import RiderStatus from "./pages/Cars/RiderStatus";
 import Shopping from "./pages/Shopping";
 import Excursion from "./pages/Excursion";
+import { Nav } from "react-bootstrap";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Buttons />
-        {/*         <Navbar /> */}
-        <Table />
+        <Navbar />
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

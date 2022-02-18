@@ -1,0 +1,16 @@
+.container {
+width: 710px;
+height: 429px;
+background-color: #daf2f4;
+margin-right: 10px;
+margin-left: 350px;
+}
+
+.header {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    font-size: 68px;
+    color: #162b2a;
+    justify-items: center;
+    margin-left: 290px;
+}
+

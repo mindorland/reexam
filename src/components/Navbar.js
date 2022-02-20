@@ -36,7 +36,7 @@ function Navbar() {
         {!Parse.User.current() && ( //when the user is not logged in.
           <>
             <ul className="nav-menu-items">
-              <li className="nav-text">
+              <li className="nav-title">
                 <Link to="/">AsoPlan</Link>
               </li>
               <li className="nav-text">

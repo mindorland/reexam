@@ -13,13 +13,12 @@ import DriverStatus from "./pages/Cars/DriverStatus";
 import RiderStatus from "./pages/Cars/RiderStatus";
 import Shopping from "./pages/Shopping";
 import Excursion from "./pages/Excursion";
-import Background from "./components/Background";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        */ /* <Navbar /> */
+        /* <Navbar /> */
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

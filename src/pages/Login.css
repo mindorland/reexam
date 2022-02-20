@@ -1,16 +1,35 @@
-.logincontainer {
-  width: 710px;
+.login-container {
+  width: 700px;
   height: 429px;
   background-color: #daf2f4;
-  margin-right: 10px;
-  margin-left: 350px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .header {
+  width: 710px;
+
   font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
     sans-serif;
   font-size: 68px;
   color: #162b2a;
-  justify-items: center;
-  margin-left: 290px;
+  text-align: center;
+}
+
+/* Narrow text field */
+.narrow-textfield {
+  width: 395px;
+  height: 26px;
+  overflow-y: scroll;
+  background: #fff7f7;
+  border: 3px solid #91acab;
+  box-sizing: border-box;
+  border-radius: 10px;
+  /* Inside auto layout */
+  flex: none;
+
+  flex-grow: 0;
+  margin-left: 40%;
 }

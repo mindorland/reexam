@@ -14,7 +14,7 @@
 
 .nav-menu {
   background-color: #ffe2e2;
-  width: 25%;
+  width: 350px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -30,40 +30,36 @@
   } */
 
 .nav-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 16px 8px 16px;
-  list-style: none;
-  height: 100px;
-  padding-bottom: 0px;
-}
-
-.nav-title a {
   text-decoration: none;
-  width: 95%;
-  height: 100%;
-  color: #162b2a;
+  list-style: none;
   font-size: 68px;
-  align-items: center;
-  padding: 16 16px;
-  border-radius: 4px;
+  color: #162b2a;
+  padding-bottom: 50px;
+  position: static;
+  width: 300 px;
+  height: 80px;
+  left: 45px;
+  top: 59px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: normal;
-  font-weight: 300;
-  display: flex;
+  font-weight: 200;
+  line-height: 80px;
+  /* identical to box height */
+  text-align: center;
   letter-spacing: -0.02em;
-}
+  /* Inside auto layout */
 
-.nav-title a:hover {
-  background-color: #fa728b;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
 }
 
 .nav-text {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 16px 8px 16px;
+  padding: 8px 0px 8px 16px;
   list-style: none;
   height: 60px;
 }
@@ -76,6 +72,7 @@
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
+
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: normal;
   font-weight: 300;

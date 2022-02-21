@@ -5,7 +5,6 @@ function Shopping() {
   return (
     <div className="shopping">
       <Table />
-      <h1>Shopping</h1>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import "./CSS/Table.css";
+import "../pages/Login.css";
 import { Button, Input, List } from "antd";
 import {
   CheckOutlined,
@@ -135,7 +136,7 @@ export const Table = () => {
                 <List
                   dataSource={readResults}
                   renderItem={(item) => (
-                    <div>
+                    <tr>
                       <td>{item.get("title")}</td>
                       <td>{item.get("unit")}</td>
                       <td>{item.get("quantity")}</td>
@@ -152,7 +153,7 @@ export const Table = () => {
                           }
                         ></Button>
                       </td>
-                    </div>
+                    </tr>
                   )}
                 />
               )}
@@ -165,23 +166,26 @@ export const Table = () => {
                 value={newShoppingTitle}
                 onChange={(event) => setNewShoppingTitle(event.target.value)}
                 placeholder="New Shopping"
-                size="large"
-              />{" "}
+                size="small"
+                className="small-textfield"
+              />
             </th>
-            <th>
+            <th className="form">
               <Input
+                className="small-textfield"
                 value={newQuantity}
                 onChange={(event) => setNewQuantity(event.target.value)}
                 placeholder="New Quantity"
-                size="large"
+                size="small"
               />
             </th>
             <th>
               <Input
                 value={newUnit}
+                className="small-textfield"
                 onChange={(event) => setNewUnit(event.target.value)}
                 placeholder="New Unit"
-                size="large"
+                size="small"
               />
             </th>
 
@@ -190,13 +194,12 @@ export const Table = () => {
             <th>
               <Button
                 type="primary"
-                className="create_Shopping_button"
+                className="table-button"
                 color={"#208AEC"}
                 size={"large"}
                 onClick={createShopping}
-                icon={<PlusOutlined />}
               >
-                Add
+                add to shopping list
               </Button>
             </th>
           </tr>

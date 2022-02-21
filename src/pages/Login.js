@@ -29,7 +29,7 @@ export default function Login(props) {
         <Form>
           <div classname="login-cointainer">
             <Form.Group controlId="formBasicUsername">
-              <Form.Label>Username</Form.Label>
+              <Form.Label className="emph-body">Username</Form.Label>
               <Form.Control
                 className="narrow-textfield"
                 type="text"
@@ -39,7 +39,7 @@ export default function Login(props) {
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label className="emph-body">Password</Form.Label>
               <Form.Control
                 className="narrow-textfield"
                 type="password"
@@ -54,7 +54,7 @@ export default function Login(props) {
             >
               submit
             </Button>{" "}
-            <p>
+            <p className="emph-body">
               Don't have an account?
               <Link to="/signup"> Create one!</Link>
             </p>

@@ -51,20 +51,18 @@ export default function SignUp() {
         <Form>
           <div classname="login-cointainer">
             <Form.Group className="mb-3" controlId="formBasicUsrname">
-              <p className="emph-body">
-                Username
-                <Form.Control
-                  className="narrow-textfield"
-                  onChange={usernameChange}
-                  type="text"
-                  placeholder="Enter username"
-                  autoFocus
-                />
-              </p>
+              <Form.Label className="emph-body">Username </Form.Label>
+              <Form.Control
+                className="narrow-textfield"
+                onChange={usernameChange}
+                type="text"
+                placeholder="Enter username"
+                autoFocus
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+              <Form.Label className="emph-body">Password</Form.Label>
               <Form.Control
                 className="narrow-textfield"
                 type="password"
@@ -74,7 +72,7 @@ export default function SignUp() {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label className="emph-body">Name</Form.Label>
               <Form.Control
                 className="narrow-textfield"
                 type="text"
@@ -84,7 +82,7 @@ export default function SignUp() {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label className="emph-body">Email address</Form.Label>
               <Form.Control
                 className="narrow-textfield"
                 onChange={emailChange}

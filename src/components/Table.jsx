@@ -7,17 +7,17 @@ import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";
 
 /** All is fucked :) :) :) */
 
-// export const Table = () => {
-//   // State variables
-//   const [readResults, setReadResults] = useState({
-//     title: "",
-//     unit: "",
-//     quantity: "",
-//     delete: "",
-//   });
-//   const [newShoppingTitle, setNewShoppingTitle] = useState("");
-//   const [newQuantity, setNewQuantity] = useState("");
-//   const [newUnit, setNewUnit] = useState("");
+export const Table = () => {
+  // State variables
+  const [readResults, setReadResults] = useState({
+   title: "",
+ unit: "",
+     quantity: "",
+    delete: "",
+  });
+  const [newShoppingTitle, setNewShoppingTitle] = useState("");
+  const [newQuantity, setNewQuantity] = useState("");
+  const [newUnit, setNewUnit] = useState("");
 
 // Functions used by the screen components
 const createShopping = async function () {
@@ -45,21 +45,19 @@ const createShopping = async function () {
   }
 };
 
-//   const readShoppings = async function () {
-//     // Reading parse objects is done by using Parse.Query
-//     const parseQuery = new Parse.Query("Shopping");
-//     try {
-//       let Shoppings = await parseQuery.find();
-//       // Be aware that empty or invalid queries return as an empty array
-//       // Set results to state variable
-//       setReadResults(Shoppings);
-//       return true;
-//     } catch (error) {
-//       // Error can be caused by lack of Internet connection
-//       alert(`Error! ${error.message}`);
-//       return false;
-//     }
-//   };
+  const readShoppings = async function () {
+     // Reading parse objects is done by using Parse.Query
+     const parseQuery = new Parse.Query("Shopping");//     try {
+       let Shoppings = await parseQuery.find();
+       // Be aware that empty or invalid queries return as an empty array    // Set results to state variable
+     setReadResults(Shoppings);
+      return true;
+   } catch (error) {
+       // Error can be caused by lack of Internet connection
+      alert(`Error! ${error.message}`);
+       return false;
+     }
+   };
 
 //   const updateShopping = async function (shoppingId, done) {
 //     // Create a new to-do parse object instance and set Shopping id

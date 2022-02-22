@@ -45,9 +45,9 @@ function Navbar() {
               <li className="nav-text">
                 <Link to="/login">LogIn</Link>
               </li>
-              <li className="nav-text">
+              {/* <li className="nav-text">
                 <Link to="/shopping">Shopping</Link>
-              </li>
+              </li> */}
             </ul>
           </>
         )}

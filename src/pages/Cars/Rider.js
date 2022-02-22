@@ -5,6 +5,8 @@ import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
 import Parse from "parse/dist/parse.min.js"
 import { useEffect } from "react"
+import RequestBtn from '../../components/Buttons/RequestBtn'
+import CancelBtn from '../../components/Buttons/CancelBtn'
 
 function Rider() {
   const [requests, sestRequests] = useState()
@@ -12,6 +14,9 @@ function Rider() {
   const navigate = useNavigate()
   const [drives, setDrives] = useState()
   const [drivers, setDrivers] = useState()
+  const [isRequested, setIsRequested] = useState(false)
+  const [requestDisable, setRequestDisable] = useState(false)
+  const [cancelDisable, setCancelDisable] = useState(false)
 
   const requestsValue = Number(requests) //to convert data value to Number
 
@@ -50,7 +55,6 @@ function Rider() {
     const userQuery = new Parse.Query(Users)
     const results = await userQuery.find()
     setDrivers(results)
-    console.log(results)
   }
 
   function handleSave(e) {
@@ -63,6 +67,22 @@ function Rider() {
     request.set("status", status)
   }
 
+  const handleRequest = (id) => {
+
+    //setIsRequested(isRequested => !isRequested)
+    setRequestDisable(true)
+    console.log(id + 'clicked');
+  }
+
+  function handleRequested() {
+
+  }
+
+  function handleCancel(e) {
+    e.preventDefault()
+    setRequestDisable(false)
+  }
+
   //get all registed drives.
 
   return (
@@ -72,15 +92,23 @@ function Rider() {
         <ul>
           {drives.map((drive) => (
             <li key={drive.id}>
-
-            {drive.get("driver").id} shares {drive.get("remainingSeats")} seats.
-
+                {drivers.find(x => x.id === drive.get("driver").id).attributes.name} shares {drive.get("remainingSeats")} seats.
+                <RequestBtn 
+                    drive={drive}
+                    key={drive.id}
+                    requestRide={handleRequest} 
+                    requestDisabled={requestDisable}/>
+                <CancelBtn 
+                    drive={drive}
+                    key={drive.id}
+                    cancleRide={handleCancel} 
+                    cancelDisabled={requestDisable}/>
             </li>
           ))}
         </ul>
       )}
       <Button onClick={handleSave} variant="primary" type="submit">
-        Save
+        Save Changes
       </Button>
     </div>
   )

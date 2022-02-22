@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import "./CSS/Table.css";
 import "../pages/Login.css";
-import { Button, Input, List } from "antd";
-import {
-  CheckOutlined,
-  CloseOutlined,
-  PlusOutlined,
-  RedoOutlined,
-} from "@ant-design/icons";
+import { Button, Form, ListGroup } from "react-bootstrap";
+import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";
 
 export const Table = () => {
   // State variables
@@ -38,7 +33,7 @@ export const Table = () => {
       await Shopping.save();
       // Success
       alert("Success! To-do created!");
-      // Refresh to-dos list to show the new one (you will create this function later)
+      // Refresh to-dos ListGroup to show the new one (you will create this function later)
       readShoppings();
       return true;
     } catch (error) {
@@ -74,7 +69,7 @@ export const Table = () => {
       await Shopping.save();
       // Success
       alert("Success! To-do updated!");
-      // Refresh Shoppings list
+      // Refresh Shoppings ListGroup
       readShoppings();
       return true;
     } catch (error) {
@@ -92,7 +87,7 @@ export const Table = () => {
     try {
       await Shopping.destroy();
       alert("Success! To-do deleted!");
-      // Refresh to-dos list to remove this one
+      // Refresh to-dos ListGroup to remove this one
       readShoppings();
       return true;
     } catch (error) {
@@ -112,7 +107,7 @@ export const Table = () => {
         color={"#208AEC"}
         size={"default"}
         onClick={readShoppings}
-        icon={<RedoOutlined />}
+        icon={<AiTwotoneBug />}
       ></Button>
       <table>
         <thead>
@@ -124,16 +119,13 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Shopping read results list*/}
+          {/* Shopping read results ListGroup*/}
 
-          <tr>
-            <td></td>
-          </tr>
           <tr>
             {readResults !== null &&
               readResults !== undefined &&
               readResults.length > 0 && (
-                <List
+                <ListGroup
                   dataSource={readResults}
                   renderItem={(item) => (
                     <tr>
@@ -149,7 +141,7 @@ export const Table = () => {
                           className="Shopping_button"
                           onClick={() => deleteShopping(item.id)}
                           icon={
-                            <CloseOutlined className="Shopping_button_icon_remove" />
+                            <AiOutlineCloseCircle className="Shopping_button_icon_remove" />
                           }
                         ></Button>
                       </td>
@@ -159,40 +151,47 @@ export const Table = () => {
               )}
           </tr>
 
+          {/* Shopping create text Form */}
+
           <tr>
-            {/* Shopping create text input */}
-            <th>
-              <Input
-                value={newShoppingTitle}
-                onChange={(event) => setNewShoppingTitle(event.target.value)}
-                placeholder="New Shopping"
-                size="small"
-                className="small-textfield"
-              />
-            </th>
-            <th className="form">
-              <Input
-                className="small-textfield"
-                value={newQuantity}
-                onChange={(event) => setNewQuantity(event.target.value)}
-                placeholder="New Quantity"
-                size="small"
-              />
-            </th>
-            <th>
-              <Input
-                value={newUnit}
-                className="small-textfield"
-                onChange={(event) => setNewUnit(event.target.value)}
-                placeholder="New Unit"
-                size="small"
-              />
-            </th>
-
-            {/* Shopping create button*/}
-
-            <th>
-              <Button
+            <Form>
+              <div className="login-container">
+                <th>
+                  <Form.Group className="mb-3" controlId="newShoppingItem">
+                    <Form.Control
+                      className="small-textfield"
+                      value={newShoppingTitle}
+                      onChange={(event) =>
+                        setNewShoppingTitle(event.target.value)
+                      }
+                      placeholder="New Shopping"
+                    />
+                  </Form.Group>
+                </th>
+                <th>
+                  <Form.Group className="mb-3" controlId="newShoppingItem">
+                    <Form.Control
+                      className="small-textfield"
+                      value={newQuantity}
+                      onChange={(event) => setNewQuantity(event.target.value)}
+                      placeholder="New Quantity"
+                    />
+                  </Form.Group>
+                </th>
+                <th>
+                  <Form.Group className="mb-3" controlId="newShoppingItem">
+                    <Form.Control
+                      value={newUnit}
+                      className="small-textfield"
+                      onChange={(event) => setNewUnit(event.target.value)}
+                      placeholder="New Unit"
+                    />
+                  </Form.Group>
+                </th>
+              </div>
+              <th>
+                {/* Shopping create button*/}
+                {/*    <Button
                 type="primary"
                 className="table-button"
                 color={"#208AEC"}
@@ -200,8 +199,9 @@ export const Table = () => {
                 onClick={createShopping}
               >
                 add to shopping list
-              </Button>
-            </th>
+              </Button> */}
+              </th>{" "}
+            </Form>
           </tr>
         </tbody>
       </table>

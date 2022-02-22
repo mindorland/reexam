@@ -25,6 +25,7 @@ function Driver() {
     drive.set("remainingSeats", seatsValue); //to manage the remaining seats
     drive.set("notes", notes);
     drive.set("isClosed", isClosed);
+    currentUser.set("isDriver", true);
 
     drive.save().then(
       (drive) => {

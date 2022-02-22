@@ -13,6 +13,8 @@ import DriverStatus from "./pages/Cars/DriverStatus";
 import RiderStatus from "./pages/Cars/RiderStatus";
 import Shopping from "./pages/Shopping";
 import Excursion from "./pages/Excursion";
+import Parse from "parse/dist/parse.min.js";
+import { useState, useEffect } from "react";
 
 function App() {
   return (

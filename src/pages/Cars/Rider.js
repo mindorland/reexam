@@ -5,8 +5,8 @@ import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
 import Parse from "parse/dist/parse.min.js"
 import { useEffect } from "react"
-import RequestBtn from '../../components/Buttons/RequestBtn'
-import CancelBtn from '../../components/Buttons/CancelBtn'
+import RequestCancelBtn from '../../components/Buttons/RequestCancelBtn'
+
 
 function Rider() {
   const [requests, sestRequests] = useState()
@@ -57,59 +57,69 @@ function Rider() {
     setDrivers(results)
   }
 
-  function handleSave(e) {
-    e.preventDefault()
-    const RideRequest = new Parse.Object.extend("RideRequest")
-    const request = new RideRequest()
-    const currentUser = Parse.User.current()
+//   function handleSave(e) {
+//     const RideRequest = new Parse.Object.extend("RideRequest")
+//     const request = new RideRequest()
+//     const currentUser = Parse.User.current()
 
-    request.set("requestedSeats", requestsValue)
-    request.set("status", status)
-  }
+//     request.set("driver", )
+//     request.set("requestedSeats", requestsValue)
+//     request.set("status", status)
+//   }
 
   const handleRequest = (id) => {
 
     //setIsRequested(isRequested => !isRequested)
-    setRequestDisable(true)
+    // setRequestDisable(true)
     console.log(id + 'clicked');
+    const Drives = new Parse.Object.extend("Drives")
+    const query = new Parse.Query(Drives)
+    query.get(id).then((drive) => {
+        console.log(drive)
+        drive.set("requestsFrom", Parse.User.current())}, (error)=> {
+        console.log('error')
+    })
   }
 
-  function handleRequested() {
-
+  const handleCancel = (id) => {
+    // setRequestDisable(false)
+    console.log(id + 'cancel clicked');
+    const Drives = new Parse.Object.extend("Drives")
+    const query = new Parse.Query(Drives)
+    query.get(id).then((drive) => {
+        console.log(drive)
+        drive.set("requestsFrom", null)}, (error)=> {
+        console.log('error')
+    })
   }
-
-  function handleCancel(e) {
-    e.preventDefault()
-    setRequestDisable(false)
-  }
+//     const Drives = new Parse.Object.extend("Drives")
+//     const query = new Parse.Query(Drives)
+//     const drive = query.get(id)
+//     drive.set("requests", Parse.User.current())
+//   }
 
   //get all registed drives.
 
   return (
     <div className="cars">
       <h1>Available rides </h1>
-      {drives && (
+      {drivers && (
         <ul>
           {drives.map((drive) => (
             <li key={drive.id}>
                 {drivers.find(x => x.id === drive.get("driver").id).attributes.name} shares {drive.get("remainingSeats")} seats.
-                <RequestBtn 
+                <RequestCancelBtn 
                     drive={drive}
                     key={drive.id}
                     requestRide={handleRequest} 
-                    requestDisabled={requestDisable}/>
-                <CancelBtn 
-                    drive={drive}
-                    key={drive.id}
-                    cancleRide={handleCancel} 
-                    cancelDisabled={requestDisable}/>
+                    cancelRide={handleCancel} />
             </li>
           ))}
         </ul>
       )}
-      <Button onClick={handleSave} variant="primary" type="submit">
+      {/* <Button onClick={handleSave} variant="primary" type="submit">
         Save Changes
-      </Button>
+      </Button> */}
     </div>
   )
 }

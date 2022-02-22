@@ -59,6 +59,7 @@ function Cars() {
             onClick={handleRiderClick}
             variant="primary"
             type="submit"
+            style={{ background: "#fa728b" }}
           >
             Rider
           </Button>

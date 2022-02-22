@@ -244,7 +244,7 @@ p {
 
 /* ------- Cancel button ------- */
 
-.cancel {
+.cancel-button {
   position: static;
   width: 140px;
   height: 38px;

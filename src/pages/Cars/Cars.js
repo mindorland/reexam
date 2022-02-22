@@ -2,13 +2,33 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import Parse from "parse/dist/parse.min.js";
+import { useState, useEffect } from "react";
 
 function Cars() {
   const navigate = useNavigate();
+  const [hasRegistered, setHasRegistered] = useState(false);
+
+  // const Drives = new Parse.Object.extend("Drives"); //create a new Parse Obejct subclass
+  // const query = Parse.Query(Drives);
+  function findDriver() {
+    const currentUser = Parse.User.current();
+    console.log(currentUser.attributes.isDriver);
+    const isDriver = currentUser.get("isDriver");
+    setHasRegistered(isDriver);
+  }
+
+  useEffect(() => {
+    findDriver();
+  }, []);
 
   function handleDriverClick(e) {
     e.preventDefault();
-    navigate("/cars/driver");
+    if (!hasRegistered) {
+      navigate("/cars/driver");
+    } else {
+      navigate("/cars/driverStatus");
+    }
   }
 
   function handleRiderClick(e) {

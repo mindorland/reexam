@@ -40,7 +40,7 @@ p {
 /** Text **/
 
 .title {
-  font-family: Work Sans;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: normal;
   font-weight: 200;
   font-size: 68.0238px;
@@ -51,7 +51,7 @@ p {
 }
 
 .header1 {
-  font-family: Work Sans;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 41.9904px;
@@ -61,7 +61,7 @@ p {
 }
 
 .header2 {
-  font-family: Work Sans;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 25.92px;
@@ -150,4 +150,8 @@ p {
   letter-spacing: 0.05em;
   font-variant: small-caps;
   color: #162b2a;
+}
+
+.card {
+  margin-left: 30%;
 }

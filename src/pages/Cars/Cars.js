@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -17,17 +17,24 @@ function Cars() {
   }
 
   return (
-    <div className="cars">
-      <div class="card">
-        <div class="card-header">
+    <Card style={{ width: "50rem" }} className="card-container jc-center">
+      <div class="flex-parent jc-center">
+        <Card.Title className="header1">
           Are you a driver or a rider for the excursion?
-        </div>
-        <div class="card-body">
-          <Button onClick={handleDriverClick} variant="primary" type="submit">
+        </Card.Title>
+      </div>
+      <Card.Body className="jc-center">
+        <div class="flex-parent jc-center">
+          <Button
+            className="car-button"
+            onClick={handleDriverClick}
+            type="submit"
+          >
             Driver
           </Button>
           <Button
-            className="primary-button"
+            className="car-button"
+            text="subtitle"
             onClick={handleRiderClick}
             variant="primary"
             type="submit"
@@ -35,11 +42,10 @@ function Cars() {
             Rider
           </Button>
         </div>
-        <div class="card-footer">Footer</div>
-      </div>
-      <h1> </h1>
+      </Card.Body>
+
       {/* To Do: change the excursion to the title? */}
-    </div>
+    </Card>
   );
 }
 

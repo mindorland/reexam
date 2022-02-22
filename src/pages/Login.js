@@ -3,8 +3,7 @@ import { Form, Button, ListGroup, ListGroupItem } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import "./Login.css";
-import "../components/CSS/Buttons.css";
+import "../App.css";
 
 export default function Login(props) {
   const [username, setUsername] = useState();

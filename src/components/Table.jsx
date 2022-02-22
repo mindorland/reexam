@@ -5,6 +5,8 @@ import "../pages/Login.css";
 import { Button, Form, ListGroup } from "react-bootstrap";
 import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";
 
+/** All is fucked :) :) :) */
+
 // export const Table = () => {
 //   // State variables
 //   const [readResults, setReadResults] = useState({

@@ -23,8 +23,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Buttons />
-        {/*         <Navbar /> */}
         <Table />
         <Routes>
           <Route path="/signup" element={<SignUp />} />

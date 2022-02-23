@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./OurStyle.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -30,7 +30,10 @@ function App() {
           <Route path="/cars/driver" element={<Driver />} />
           <Route path="/cars/rider" element={<Rider />} />
           <Route path="/cars/driverstatus" element={<DriverStatus />} />
-          <Route path="/cars/driverscomplete" element={<DriverCompleteStatus />} />
+          <Route
+            path="/cars/driverscomplete"
+            element={<DriverCompleteStatus />}
+          />
           <Route path="/cars/riderstatus" element={<RiderStatus />} />
           <Route path="/cars" element={<Cars />} />
           <Route path="/shopping" element={<Shopping />} />

@@ -98,39 +98,7 @@ export const Table = () => {
   };
 
   return (
-    <div>
-      <ListGroup>
-        {" "}
-        {readResults !== null &&
-          readResults !== undefined &&
-          readResults.length > 0 &&
-          readResults.map((item) => (
-            <ListGroupItem
-              style={{ border: "none" }}
-              className="subtitle picture-margin jc-center flex-parent"
-              key="item.id"
-            >
-              {item.title} - {item.unit} - {item.quantity}
-            </ListGroupItem>
-          ))}
-      </ListGroup>
-      {/*  <ListGroup
-        className="ptitle flex-parent jc-center"
-        style={{ border: "none" }}
-      >
-        {readResults.map((item) => (
-          <ListGroupItem
-            style={{ border: "none" }}
-            className="subtitle picture-margin jc-center flex-parent"
-            key="item.id"
-          >
-            {item.title} - {item.unit} - {item.quantity}{" "}
-          </ListGroupItem>
-        ))}
-        /*{" "}
-      </ListGroup> */}
-      {/* To-do read (refresh) button 
-  
+    <div className="pageContent">
       <Button
         type="primary"
         shape="circle"
@@ -149,7 +117,7 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Shopping read results ListGroup}
+          {/* Shopping read results ListGroup */}
 
           <tr>
             {readResults !== null &&
@@ -163,7 +131,7 @@ export const Table = () => {
                       <td>{item.get("unit")}</td>
                       <td>{item.get("quantity")}</td>
 
-                      {/* Shopping delete button}
+                      {/* Shopping delete button */}
                       <td>
                         <Button
                           type="primary"
@@ -180,61 +148,52 @@ export const Table = () => {
                 />
               )}
           </tr>
-
-          { Shopping create text Form }
-
-          <tr>
-            <Form>
-              <div className="login-container">
-                <th>
-                  <Form.Group className="mb-3" controlId="newShoppingItem">
-                    <Form.Control
-                      className="small-textfield"
-                      value={newShoppingTitle}
-                      onChange={(event) =>
-                        setNewShoppingTitle(event.target.value)
-                      }
-                      placeholder="New Shopping"
-                    />
-                  </Form.Group>
-                </th>
-                <th>
-                  <Form.Group className="mb-3" controlId="newShoppingItem">
-                    <Form.Control
-                      className="small-textfield"
-                      value={newQuantity}
-                      onChange={(event) => setNewQuantity(event.target.value)}
-                      placeholder="New Quantity"
-                    />
-                  </Form.Group>
-                </th>
-                <th>
-                  <Form.Group className="mb-3" controlId="newShoppingItem">
-                    <Form.Control
-                      value={newUnit}
-                      className="small-textfield"
-                      onChange={(event) => setNewUnit(event.target.value)}
-                      placeholder="New Unit"
-                    />
-                  </Form.Group>
-                </th>
-              </div>
-              <th>
-                {/* Shopping create button*/}
-      {/*    <Button
-                type="primary"
-                className="table-button"
-                color={"#208AEC"}
-                size={"large"}
-                onClick={createShopping}
-              >
-                add to shopping list
-              </Button> }
-              </th>{" "}
-            </Form>
-          </tr>
         </tbody>
-                </table> */}
+      </table>
+
+      {/* Shopping create text Form */}
+
+      <Form>
+        <div className="flex-parent jc-center">
+          <Form.Group className="mb-3" controlId="newShoppingItem">
+            <Form.Control
+              className="small-textfield"
+              value={newShoppingTitle}
+              onChange={(event) => setNewShoppingTitle(event.target.value)}
+              placeholder="New Shopping"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="newShoppingItem">
+            <Form.Control
+              className="small-textfield"
+              value={newQuantity}
+              onChange={(event) => setNewQuantity(event.target.value)}
+              placeholder="New Quantity"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="newShoppingItem">
+            <Form.Control
+              value={newUnit}
+              className="small-textfield"
+              onChange={(event) => setNewUnit(event.target.value)}
+              placeholder="New Unit"
+            />
+          </Form.Group>
+        </div>
+        {/* Shopping create button */}
+
+        <Button
+          type="primary"
+          className="table-button"
+          color={"#208AEC"}
+          size={"large"}
+          onClick={createShopping}
+        >
+          add to shopping list
+        </Button>
+      </Form>
     </div>
   );
 };

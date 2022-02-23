@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
-import "./CSS/Table.css";
-import "../pages/Login.css";
-import { Button, Form, ListGroup } from "react-bootstrap";
-import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";
+import "../App.css";
 
-/** All is fucked :) :) :) */
+import { Button, Form, ListGroup, ListGroupItem } from "react-bootstrap";
+import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";
 
 export const Table = () => {
   // State variables
@@ -50,7 +48,8 @@ export const Table = () => {
     const parseQuery = new Parse.Query("Shopping");
     try {
       let Shoppings = await parseQuery.find();
-      // Be aware that empty or invalid queries return as an empty array    // Set results to state variable
+      // Be aware that empty or invalid queries return as an empty array
+      // Set results to state variable
       setReadResults(Shoppings);
       return true;
     } catch (error) {
@@ -61,24 +60,25 @@ export const Table = () => {
   };
 
   const updateShopping = async function (shoppingId, done) {
-  //     // Create a new to-do parse object instance and set Shopping id
-     let Shopping = new Parse.Object("Shopping");
-     Shopping.set("objectId", shoppingId);
+    // Create a new to-do parse object instance and set Shopping id
+    let Shopping = new Parse.Object("Shopping");
+    Shopping.set("objectId", shoppingId);
     // Set new done value and save Parse Object changes
 
-  try {
-    await Shopping.save();
-    // Success
-    alert("Success! To-do updated!");
-    // Refresh Shoppings ListGroup
-    readShoppings();
-    return true;
-  } catch (error) {
-    // Error can be caused by lack of Internet connection
-    alert(`Error! ${error.message}`);
-    return false;
-  }
-  
+    try {
+      await Shopping.save();
+      // Success
+      alert("Success! To-do updated!");
+      // Refresh Shoppings ListGroup
+      readShoppings();
+      return true;
+    } catch (error) {
+      // Error can be caused by lack of Internet connection
+      alert(`Error! ${error.message}`);
+      return false;
+    }
+  };
+
   const deleteShopping = async function (shoppingId) {
     // Create a new Shopping parse object instance and set Shopping id
     let Shopping = new Parse.Object("Shopping");
@@ -99,7 +99,38 @@ export const Table = () => {
 
   return (
     <div>
-      {/* To-do read (refresh) button */}
+      <ListGroup>
+        {" "}
+        {readResults !== null &&
+          readResults !== undefined &&
+          readResults.length > 0 &&
+          readResults.map((item) => (
+            <ListGroupItem
+              style={{ border: "none" }}
+              className="subtitle picture-margin jc-center flex-parent"
+              key="item.id"
+            >
+              {item.title} - {item.unit} - {item.quantity}
+            </ListGroupItem>
+          ))}
+      </ListGroup>
+      {/*  <ListGroup
+        className="ptitle flex-parent jc-center"
+        style={{ border: "none" }}
+      >
+        {readResults.map((item) => (
+          <ListGroupItem
+            style={{ border: "none" }}
+            className="subtitle picture-margin jc-center flex-parent"
+            key="item.id"
+          >
+            {item.title} - {item.unit} - {item.quantity}{" "}
+          </ListGroupItem>
+        ))}
+        /*{" "}
+      </ListGroup> */}
+      {/* To-do read (refresh) button 
+  
       <Button
         type="primary"
         shape="circle"
@@ -118,7 +149,7 @@ export const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Shopping read results ListGroup*/}
+          {/* Shopping read results ListGroup}
 
           <tr>
             {readResults !== null &&
@@ -132,7 +163,7 @@ export const Table = () => {
                       <td>{item.get("unit")}</td>
                       <td>{item.get("quantity")}</td>
 
-                      {/* Shopping delete button*/}
+                      {/* Shopping delete button}
                       <td>
                         <Button
                           type="primary"
@@ -150,7 +181,7 @@ export const Table = () => {
               )}
           </tr>
 
-          {/* Shopping create text Form */}
+          { Shopping create text Form }
 
           <tr>
             <Form>
@@ -190,7 +221,7 @@ export const Table = () => {
               </div>
               <th>
                 {/* Shopping create button*/}
-                {/*    <Button
+      {/*    <Button
                 type="primary"
                 className="table-button"
                 color={"#208AEC"}
@@ -198,11 +229,14 @@ export const Table = () => {
                 onClick={createShopping}
               >
                 add to shopping list
-              </Button> */}
+              </Button> }
               </th>{" "}
             </Form>
           </tr>
         </tbody>
-      </table>
+                </table> */}
     </div>
   );
+};
+
+export default Table;

@@ -10,6 +10,7 @@ import Cars from "./pages/Cars/Cars";
 import Driver from "./pages/Cars/Driver";
 import Rider from "./pages/Cars/Rider";
 import DriverStatus from "./pages/Cars/DriverStatus";
+import DriverCompleteStatus from "./pages/Cars/DriverCompleteStatus";
 import RiderStatus from "./pages/Cars/RiderStatus";
 import Shopping from "./pages/Shopping";
 import Excursion from "./pages/Excursion";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/cars/driver" element={<Driver />} />
           <Route path="/cars/rider" element={<Rider />} />
           <Route path="/cars/driverstatus" element={<DriverStatus />} />
+          <Route path="/cars/driverscomplete" element={<DriverCompleteStatus />} />
           <Route path="/cars/riderstatus" element={<RiderStatus />} />
           <Route path="/cars" element={<Cars />} />
           <Route path="/shopping" element={<Shopping />} />

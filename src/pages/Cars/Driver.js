@@ -30,10 +30,10 @@ function Driver() {
     drive.save().then(
       (drive) => {
         navigate("/cars/driverstatus");
-        alert("New object created");
+        //alert("New object created");
       },
       (error) => {
-        alert("Failed to create new object" + error.message);
+        //alert("Failed to create new object" + error.message);
       }
     );
   }

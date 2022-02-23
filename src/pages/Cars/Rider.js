@@ -25,6 +25,7 @@ function Rider() {
   const [isRequested, setIsRequested] = useState(false);
   const [requestDisable, setRequestDisable] = useState(false);
   const [cancelDisable, setCancelDisable] = useState(false);
+  //const [currentUser, setCurrentUser] = useState(Parse.User.current())
 
   const requestsValue = Number(requests); //to convert data value to Number
 
@@ -65,26 +66,31 @@ function Rider() {
     setDrivers(results);
   };
 
-  //   function handleSave(e) {
-  //     const RideRequest = new Parse.Object.extend("RideRequest")
-  //     const request = new RideRequest()
-  //     const currentUser = Parse.User.current()
-
-  //     request.set("driver", )
-  //     request.set("requestedSeats", requestsValue)
-  //     request.set("status", status)
-  //   }
-
   const handleRequest = (id) => {
     //setIsRequested(isRequested => !isRequested)
     // setRequestDisable(true)
-    console.log(id + "clicked");
+    console.log(id + " clicked");
     const Drives = new Parse.Object.extend("Drives");
     const query = new Parse.Query(Drives);
+    const currentUser = Parse.User.current();
+
     query.get(id).then(
       (drive) => {
+        // console.log(drive)
+        // const oldRequests = drive.get("requestsFrom")
+        // drive.set("requestsFrom", [...oldRequests, Parse.User.current()])
+        // drive.save()
         console.log(drive);
-        drive.set("requestsFrom", Parse.User.current());
+        console.log(drive.attributes.driver.id);
+
+        const DriveRequests = new Parse.Object.extend("DriveRequests");
+        const driveRequest = new DriveRequests();
+        driveRequest.set("drive", drive.id);
+        driveRequest.set("driver", drive.attributes.driver.id);
+        driveRequest.set("requestFrom", currentUser);
+        driveRequest
+          .save()
+          .then((request) => alert("New object created with objectId: "));
       },
       (error) => {
         console.log("error");
@@ -100,7 +106,9 @@ function Rider() {
     query.get(id).then(
       (drive) => {
         console.log(drive);
-        drive.set("requestsFrom", null);
+        // const oldRequests = drive.get("requestFrom")
+        // drive.set("requestsFrom", oldRequests.pop())
+        // drive.save()
       },
       (error) => {
         console.log("error");

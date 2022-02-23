@@ -15,6 +15,7 @@ import Parse from "parse/dist/parse.min.js";
 import { useEffect } from "react";
 import RequestCancelBtn from "../../components/Buttons/RequestCancelBtn";
 import { List } from "antd/lib/form/Form";
+import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
 
 function Rider() {
   const [requests, sestRequests] = useState();

@@ -5,6 +5,7 @@ import ExcursionSignUp from "../components/ExcursionSignUp/ExcursionSignup";
 import Parse from "parse/dist/parse.min.js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import "../OurStyle.css";
 
 function Excursion() {
   const currentUser = Parse.User.current(); //get current user

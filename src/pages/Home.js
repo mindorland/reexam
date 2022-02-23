@@ -2,6 +2,7 @@ import React from "react";
 import campfireImage from "../img/campfire.jpg";
 import hikingImage from "../img/hiking.jpg";
 import { Card } from "react-bootstrap";
+import "../OurStyle.css";
 
 function Home() {
   return (

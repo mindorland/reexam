@@ -4,6 +4,7 @@ import { Button, Form, Dropdown, DropdownButton, Card } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import Parse from "parse/dist/parse.min.js";
+import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
 
 function Driver() {
   const [seats, setSeats] = useState();
@@ -49,7 +50,6 @@ function Driver() {
 
   return (
     <>
-
       <div className="cars">
         <h1>Car Information </h1>
 

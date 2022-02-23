@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import "../App.css";
+import "../OurStyle.css";
 
 import { Button, Form, ListGroup, ListGroupItem } from "react-bootstrap";
 import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";

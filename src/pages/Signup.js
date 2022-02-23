@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router-dom";
-
+import "../OurStyle.css";
 import "../App.css";
 
 export default function SignUp() {

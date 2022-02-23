@@ -4,6 +4,7 @@ import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import "../App.css";
+import "../OurStyle.css";
 
 export default function Login(props) {
   const [username, setUsername] = useState();

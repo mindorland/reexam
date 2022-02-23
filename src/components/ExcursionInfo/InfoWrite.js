@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
 
 export default function InfoWrite(props) {
   const [title, setTitle] = useState();

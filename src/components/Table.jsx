@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Parse from "parse/dist/parse.min.js";
-import "../App.css";
 import "../OurStyle.css";
-
-import { Button, Form, ListGroup, ListGroupItem } from "react-bootstrap";
-import { AiOutlineCloseCircle, AiTwotoneBug } from "react-icons/ai";
+import { Button, Input, List } from "antd";
+import {
+  CheckOutlined,
+  CloseOutlined,
+  PlusOutlined,
+  RedoOutlined,
+} from "@ant-design/icons";
 
 export const Table = () => {
   // State variables
@@ -34,7 +37,7 @@ export const Table = () => {
       await Shopping.save();
       // Success
       alert("Success! To-do created!");
-      // Refresh to-dos ListGroup to show the new one (you will create this function later)
+      // Refresh to-dos list to show the new one (you will create this function later)
       readShoppings();
       return true;
     } catch (error) {
@@ -70,7 +73,7 @@ export const Table = () => {
       await Shopping.save();
       // Success
       alert("Success! To-do updated!");
-      // Refresh Shoppings ListGroup
+      // Refresh Shoppings list
       readShoppings();
       return true;
     } catch (error) {
@@ -88,7 +91,7 @@ export const Table = () => {
     try {
       await Shopping.destroy();
       alert("Success! To-do deleted!");
-      // Refresh to-dos ListGroup to remove this one
+      // Refresh to-dos list to remove this one
       readShoppings();
       return true;
     } catch (error) {
@@ -99,36 +102,42 @@ export const Table = () => {
   };
 
   return (
-    <div className="pageContent">
-      <Button
-        type="primary"
-        shape="circle"
-        color={"#208AEC"}
-        size={"default"}
-        onClick={readShoppings}
-        icon={<AiTwotoneBug />}
-      ></Button>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* Shopping read results ListGroup */}
+    <div>
+      <div className="container">
+        {/* To-do read (refresh) button */}
+        <Button
+          type="primary"
+          shape="circle"
+          color={"#208AEC"}
+          size={"default"}
+          onClick={readShoppings}
+          icon={<RedoOutlined />}
+        ></Button>
 
-          <tr>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Quantity</th>
+              <th>Unit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Shopping read results list */}
+
+            <tr>
+              <td></td>
+            </tr>
             {readResults !== null &&
               readResults !== undefined &&
               readResults.length > 0 && (
-                <ListGroup
+                <List
                   dataSource={readResults}
                   renderItem={(item) => (
-                    <tr>
+                    <div>
                       <td>{item.get("title")}</td>
+
                       <td>{item.get("unit")}</td>
                       <td>{item.get("quantity")}</td>
 
@@ -140,61 +149,60 @@ export const Table = () => {
                           className="Shopping_button"
                           onClick={() => deleteShopping(item.id)}
                           icon={
-                            <AiOutlineCloseCircle className="Shopping_button_icon_remove" />
+                            <CloseOutlined className="Shopping_button_icon_remove" />
                           }
                         ></Button>
                       </td>
-                    </tr>
+                    </div>
                   )}
                 />
               )}
-          </tr>
-        </tbody>
-      </table>
 
-      {/* Shopping create text Form */}
+            <tr>
+              {/* Shopping create text input */}
+              <th>
+                <Input
+                  value={newShoppingTitle}
+                  onChange={(event) => setNewShoppingTitle(event.target.value)}
+                  placeholder="New Shopping"
+                  size="large"
+                />{" "}
+              </th>
+              <th>
+                <Input
+                  value={newQuantity}
+                  onChange={(event) => setNewQuantity(event.target.value)}
+                  placeholder="New Quantity"
+                  size="large"
+                />
+              </th>
+              <th>
+                <Input
+                  value={newUnit}
+                  onChange={(event) => setNewUnit(event.target.value)}
+                  placeholder="New Unit"
+                  size="large"
+                />
+              </th>
 
-      <Form>
-        <div className="flex-parent jc-center">
-          <Form.Group className="mb-3" controlId="newShoppingItem">
-            <Form.Control
-              className="small-textfield"
-              value={newShoppingTitle}
-              onChange={(event) => setNewShoppingTitle(event.target.value)}
-              placeholder="New Shopping"
-            />
-          </Form.Group>
+              {/* Shopping create button */}
 
-          <Form.Group className="mb-3" controlId="newShoppingItem">
-            <Form.Control
-              className="small-textfield"
-              value={newQuantity}
-              onChange={(event) => setNewQuantity(event.target.value)}
-              placeholder="New Quantity"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="newShoppingItem">
-            <Form.Control
-              value={newUnit}
-              className="small-textfield"
-              onChange={(event) => setNewUnit(event.target.value)}
-              placeholder="New Unit"
-            />
-          </Form.Group>
-        </div>
-        {/* Shopping create button */}
-
-        <Button
-          type="primary"
-          className="table-button"
-          color={"#208AEC"}
-          size={"large"}
-          onClick={createShopping}
-        >
-          add to shopping list
-        </Button>
-      </Form>
+              <th>
+                <Button
+                  type="primary"
+                  className="create_Shopping_button"
+                  color={"#208AEC"}
+                  size={"large"}
+                  onClick={createShopping}
+                  icon={<PlusOutlined />}
+                >
+                  Add
+                </Button>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

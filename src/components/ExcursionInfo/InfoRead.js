@@ -58,7 +58,8 @@ export default function InfoRead(props) {
       {excursion && (
         <img alt="" style={{ maxWidth: "400px" }} src={url || icelandImage} />
       )}
-      <h4>Description: {description} </h4>
+      <br />
+      <h4> {description} </h4>
     </div>
   );
 }

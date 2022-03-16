@@ -67,7 +67,7 @@ export default function SingleParticipant(props) {
             <Form.Group className="mb-3" controlId="formBasicUsername">
               <Form.Label>Name</Form.Label>
               <Form.Control
-                className="narrow-textfield"
+                className="single-textfield"
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 placeholder={Parse.User.current().get("name")} //to show the current user's name automatically

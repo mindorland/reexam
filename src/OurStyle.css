@@ -398,6 +398,20 @@ span {
   margin-left: 40%;
 }
 
+/* Narrow text field */
+.single-textfield {
+  width: 395px;
+  height: 26px;
+  overflow-y: scroll;
+  background: #fff7f7;
+  border: 3px solid #91acab;
+  box-sizing: border-box;
+  border-radius: 10px;
+  /* Inside auto layout */
+  flex: none;
+  flex-grow: 0;
+}
+
 .small-textfield {
   width: 140px;
   height: 26px;
@@ -443,7 +457,6 @@ span {
 }
 
 .single-participant-form-btn-wrapper {
-  margin-top: 30px;
   display: flex;
   gap: 14px;
 }

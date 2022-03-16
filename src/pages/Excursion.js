@@ -1,10 +1,9 @@
 import React from "react";
 import InfoWrite from "../components/ExcursionInfo/InfoWrite";
 import InfoRead from "../components/ExcursionInfo/InfoRead";
-import ExcursionSignUp from "../components/ExcursionSignUp/ExcursionSignup";
 import Parse from "parse/dist/parse.min.js";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+
 import "../OurStyle.css";
 
 function Excursion() {
@@ -28,13 +27,12 @@ function Excursion() {
 
   return (
     <div className="excursion">
-      {username === "admin" && isExcursion === false && <InfoWrite />}
-      {username === "admin" && isExcursion === true && <InfoRead />}
-      {username !== "admin" && (
+      {username !== "admin" ? (
         <>
           <InfoRead />
-          <ExcursionSignUp />
         </>
+      ) : (
+        <InfoWrite />
       )}
     </div>
   );

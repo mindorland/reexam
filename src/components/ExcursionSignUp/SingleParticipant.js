@@ -70,39 +70,42 @@ export default function SingleParticipant(props) {
   }
 
   return (
-    <div>
+    <div className="page-content flex-parent jc-center">
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            onChange={(e) => setName(e.target.value)}
-            placeholder={Parse.User.current().get("name")} //to show the current user's name automatically
-            autoFocus
-          />
-        </Form.Group>
-        <Form.Label>Age Group</Form.Label>
-        <div key={`inline-radio`} className="mb-3">
-          <Form.Check
-            inline
-            type="radio"
-            id={`default-radio`}
-            name="agegroup"
-            label="Adult"
-            value="adult"
-            onChange={(e) => setAgegroup(e.target.value)}
-          />
-          <Form.Check
-            inline
-            type="radio"
-            id={`default-radio`}
-            name="agegroup"
-            label="Child"
-            value="child"
-            onChange={(e) => setAgegroup(e.target.value)}
-          />
-        </div>
+        <div class="flex-parent jc-center">
+          <Form.Group className="mb-3" controlId="formBasicUsername">
+            <Form.Label className="emph-body">Name</Form.Label>
+            <Form.Control
+              className="narrow-textfield"
+              type="text"
+              onChange={(e) => setName(e.target.value)}
+              placeholder={Parse.User.current().get("name")} //to show the current user's name automatically
+              autoFocus
+            />
+          </Form.Group>
 
+          <Form.Label className="emph-body">Age Group</Form.Label>
+          <div key={`inline-radio`} className="mb-3">
+            <Form.Check
+              inline
+              type="radio"
+              id={`default-radio`}
+              name="agegroup"
+              label="Adult"
+              value="adult"
+              onChange={(e) => setAgegroup(e.target.value)}
+            />
+            <Form.Check
+              inline
+              type="radio"
+              id={`default-radio`}
+              name="agegroup"
+              label="Child"
+              value="child"
+              onChange={(e) => setAgegroup(e.target.value)}
+            />
+          </div>
+        </div>
         {agegroup === "adult" && ( //inline conditional rendering
           <>
             <Form.Label>Preferred Duties</Form.Label>
@@ -137,14 +140,26 @@ export default function SingleParticipant(props) {
             </DropdownButton>
           </>
         )}
+        <div>
+          <Button
+            className="primary-button"
+            onClick={handleRegister}
+            variant="primary"
+            type="submit"
+          >
+            Save
+          </Button>
+          <Button
+            className="primary-button"
+            onClick={addParticipant}
+            disabled={!saved}
+            type="submit"
+          >
+            Add family member
+          </Button>
+        </div>
+        <div>{addNew}</div>{" "}
       </Form>
-      <Button onClick={handleRegister} variant="primary" type="submit">
-        Save
-      </Button>
-      <Button onClick={addParticipant} disabled={!saved} type="submit">
-        Add family member
-      </Button>
-      <div>{addNew}</div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Parse from "parse/dist/parse.min.js";
 import icelandImage from "../../img/skogafoss.jpg";
 import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
+import SingleParticipant from "../ExcursionSignUp/SingleParticipant";
 
 export default function InfoRead(props) {
   const [title, setTitle] = useState();
@@ -58,6 +59,7 @@ export default function InfoRead(props) {
       {excursion && (
         <img alt="" style={{ maxWidth: "400px" }} src={url || icelandImage} />
       )}
+      <SingleParticipant />
     </div>
   );
 }

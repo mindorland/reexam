@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import Parse from "parse/dist/parse.min.js";
 import { useEffect } from "react";
 import RequestCancelBtn from "../../components/Buttons/RequestCancelBtn";
-import { List } from "antd/lib/form/Form";
 import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
 
 function Rider() {
@@ -125,11 +124,7 @@ function Rider() {
   //get all registed drives.
 
   return (
-    <Card
-      style={{ border: "none" }}
-      style={{ width: "50rem" }}
-      className="card-container"
-    >
+    <Card style={{ width: "50rem" }} className="card-container">
       <p className="ptitle flex-parent jc-center">Available rides </p>
       {drivers && (
         <ListGroup

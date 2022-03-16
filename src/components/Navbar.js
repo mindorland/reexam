@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
-import "../App.css";
 import "../OurStyle.css";
 import { IconContext } from "react-icons";
 import Parse from "parse/dist/parse.min.js";

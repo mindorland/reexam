@@ -90,16 +90,13 @@ function Rider() {
       style={{ border: "none", width: "500rem" }}
       className="card-container"
     >
-      <p className="ptitle flex-parent jc-center">Available rides </p>
+      <p className="ptitle flex-parent">Available rides </p>
       {drivers && (
-        <ListGroup
-          className="ptitle flex-parent jc-center"
-          style={{ border: "none" }}
-        >
+        <ListGroup className="ptitle flex-parent ">
           {drives.map((drive) => (
             <ListGroupItem
               style={{ border: "none" }}
-              className="subtitle picture-margin jc-center flex-parent"
+              className="subtitle picture-margin flex-parent"
               key={drive.id}
             >
               {

@@ -6,11 +6,7 @@ import "../OurStyle.css";
 
 function Home() {
   return (
-    <Card
-      style={{ width: "50rem" }}
-      style={{ border: "none" }}
-      className="card-container jc-center"
-    >
+    <Card style={{ width: "50rem" }} className="card-container jc-center">
       <Card.Title className="flex-parent jc-center">
         <p className="header1">AsoPlan</p>
       </Card.Title>

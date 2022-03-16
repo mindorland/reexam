@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import Parse from "parse/dist/parse.min.js";
 import { useState, useEffect } from "react";
-import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
+import "../../OurStyle.css";
 
 function Cars() {
   const navigate = useNavigate();

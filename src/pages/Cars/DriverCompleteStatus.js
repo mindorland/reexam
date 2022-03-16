@@ -1,9 +1,5 @@
 import React from "react";
-import Parse from "parse/dist/parse.min.js";
-import { useState, useEffect } from "react";
-import AcceptBtn from "../../components/Buttons/AcceptBtn";
-import { useNavigate, Link } from "react-router-dom";
-import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
+import "../../OurStyle.css";
 
 function DriverCompleteStatus() {
   return (

@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
+import "../../OurStyle.css";
 
 export default function InfoWrite(props) {
   const [title, setTitle] = useState();
@@ -70,8 +69,6 @@ export default function InfoWrite(props) {
 
   return (
     <div className="pageContent">
-      <h1>Create an excursion</h1>
-
       {imageFile && (
         <img
           alt=""
@@ -80,9 +77,11 @@ export default function InfoWrite(props) {
         />
       )}
 
-      <Form>
+      <Form className="admin-excursion">
+        <Form.Text className="ptitle">Create an excursion!</Form.Text>
+
         <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Title</Form.Label>
+          <Form.Label className="body">Title</Form.Label>
           <Form.Control
             type="text"
             onChange={(e) => setTitle(e.target.value)}
@@ -91,7 +90,7 @@ export default function InfoWrite(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Date</Form.Label>
+          <Form.Label className="body">Date</Form.Label>
           <Form.Control
             type="date"
             onChange={(e) => setStartDate(e.target.value)}
@@ -104,7 +103,7 @@ export default function InfoWrite(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Location</Form.Label>
+          <Form.Label className="body">Location</Form.Label>
           <Form.Control
             type="text"
             onChange={(e) => setLocation(e.target.value)}
@@ -112,7 +111,7 @@ export default function InfoWrite(props) {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Description</Form.Label>
+          <Form.Label className="body">Description</Form.Label>
           <Form.Control
             type="text"
             onChange={(e) => setDescription(e.target.value)}
@@ -121,7 +120,9 @@ export default function InfoWrite(props) {
         </Form.Group>
         {!imageFile && (
           <Form.Group controlId="formFile" className="mb-3">
-            <Form.Label>Select an image from your computer</Form.Label>
+            <Form.Label className="body">
+              Select an image from your computer
+            </Form.Label>
             <Form.Control onChange={handleFileUpload} type="file" />
           </Form.Group>
         )}
@@ -131,6 +132,7 @@ export default function InfoWrite(props) {
           </Button>
         )}
         <Button
+          className="primary-button"
           onClick={handleUpload}
           disabled={!imageFile}
           variant="primary"
@@ -138,7 +140,12 @@ export default function InfoWrite(props) {
         >
           Upload
         </Button>
-        <Button onClick={handleRegister} variant="primary" type="submit">
+        <Button
+          className="primary-button"
+          onClick={handleRegister}
+          variant="primary"
+          type="submit"
+        >
           Submit
         </Button>
         <br />

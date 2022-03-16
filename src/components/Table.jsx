@@ -138,8 +138,8 @@ export const Table = () => {
                     <div>
                       <td>{item.get("title")}</td>
 
-                      <td>{item.get("unit")}</td>
                       <td>{item.get("quantity")}</td>
+                      <td>{item.get("unit")}</td>
 
                       {/* Shopping delete button */}
                       <td>

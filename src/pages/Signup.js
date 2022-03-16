@@ -44,56 +44,59 @@ export default function SignUp() {
 
   return (
     <div className="pageContent">
-      <div className="login-container">
-        <h1 className="header">Sign Up</h1>
-        <Form>
-          <div classname="login-cointainer">
-            <Form.Group className="mb-3" controlId="formBasicUsrname">
-              <Form.Label className="emph-body">Username </Form.Label>
-              <Form.Control
-                className="narrow-textfield"
-                onChange={usernameChange}
-                type="text"
-                placeholder="Enter username"
-                autoFocus
-              />
-            </Form.Group>
+      <div>
+        <div className="login-container">
+          <h1 className="header">Sign Up</h1>
+          <Form>
+            <div className="single-participant-form-name">
+              <Form.Group className="mb-3" controlId="formBasicUsrname">
+                <Form.Label className="emph-body">Username </Form.Label>
+                <Form.Control
+                  className="narrow-textfield"
+                  onChange={usernameChange}
+                  type="text"
+                  placeholder="Enter username"
+                  autoFocus
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label className="emph-body">Password</Form.Label>
-              <Form.Control
-                className="narrow-textfield"
-                type="password"
-                placeholder="Password"
-                onChange={passwordChange}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label className="emph-body">Password</Form.Label>
+                <Form.Control
+                  className="narrow-textfield"
+                  type="password"
+                  placeholder="Password"
+                  onChange={passwordChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicName">
-              <Form.Label className="emph-body">Name</Form.Label>
-              <Form.Control
-                className="narrow-textfield"
-                type="text"
-                placeholder="Enter full name"
-                onChange={nameChange}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label className="emph-body">Name</Form.Label>
+                <Form.Control
+                  className="narrow-textfield"
+                  type="text"
+                  placeholder="Enter full name"
+                  onChange={nameChange}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label className="emph-body">Email address</Form.Label>
-              <Form.Control
-                className="narrow-textfield"
-                onChange={emailChange}
-                type="email"
-                placeholder="Enter email"
-              />
-            </Form.Group>
-
-            <Button className="primary-button" onClick={createAccount}>
-              create account
-            </Button>
-          </div>
-        </Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label className="emph-body">Email address</Form.Label>
+                <Form.Control
+                  className="narrow-textfield"
+                  onChange={emailChange}
+                  type="email"
+                  placeholder="Enter email"
+                />
+              </Form.Group>
+              <div className="jc-center flex-parent">
+                <Button className="primary-button" onClick={createAccount}>
+                  create account
+                </Button>
+              </div>
+            </div>
+          </Form>
+        </div>
       </div>
     </div>
   );

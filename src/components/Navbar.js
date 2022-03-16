@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../OurStyle.css";
-import { IconContext } from "react-icons";
 import Parse from "parse/dist/parse.min.js";
 
 function Navbar() {

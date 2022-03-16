@@ -156,7 +156,6 @@ p {
 }
 
 .card-container {
-  background-color: #f9f9f7;
   border-width: 0px;
   display: flex;
   justify-content: center;
@@ -238,7 +237,11 @@ form {
   gap: 5px;
   table-layout: fixed;
   width: 50px;
-  height: 30px;
+}
+
+.login-form {
+  height: 290px;
+  margin-top: 25px;
 }
 
 form td:last-child {
@@ -363,8 +366,7 @@ span {
 /* -------------- Login CSS --------------- */
 .login-container {
   width: 700px;
-  height: auto;
-  background-color: #daf2f4;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -392,7 +394,6 @@ span {
   border-radius: 10px;
   /* Inside auto layout */
   flex: none;
-
   flex-grow: 0;
   margin-left: 40%;
 }
@@ -429,6 +430,37 @@ span {
   margin-top: 10px;
 }
 
+.single-participant-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.single-participant-form-name {
+  width: 250px;
+  margin-right: 30px;
+}
+
+.single-participant-form-btn-wrapper {
+  margin-top: 30px;
+  display: flex;
+  gap: 14px;
+}
+
+.admin-excursion {
+  margin-top: 25%;
+  flex-direction: column;
+  display: flex;
+  width: fit-content;
+}
+
+.no-account {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
 .picture-margin {
   margin: 10px;
 }
@@ -457,8 +489,6 @@ span {
   text-align: center;
   letter-spacing: 0.05em;
   font-variant: small-caps;
-  margin-left: 72%;
-  margin-top: 15px;
 }
 
 .drop-button {
@@ -479,7 +509,7 @@ span {
   text-align: center;
   letter-spacing: 0.05em;
   font-variant: small-caps;
-  margin-left: 72%;
+
   margin-top: 15px;
 }
 
@@ -487,6 +517,26 @@ span {
   background-color: #ffe2e2;
   border: 1px solid #162b2a;
   color: #162b2a;
+}
+
+.primary-button:disabled {
+  position: center;
+  width: 140px;
+  height: 38px;
+  background: #ffe2e2;
+  border: 1px solid #162b2a;
+  box-sizing: border-box;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  color: #162b2a;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
 }
 
 .drop-button:hover {
@@ -502,23 +552,45 @@ span {
   width: 140px;
   height: 38px;
   left: 0px;
-  top: 46px;
   background: #6ad7e2;
   border: 1px solid #162b2a;
   box-sizing: border-box;
   flex: none;
   order: 1;
   flex-grow: 0;
-  margin: 8px 0px;
   color: #162b2a;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: normal;
-
   font-size: 12px;
-
   text-align: center;
   letter-spacing: 0.05em;
   font-variant: small-caps;
+}
+
+.secondary:disabled {
+  position: static;
+  width: 140px;
+  height: 38px;
+  left: 0px;
+  background: #6ad7e2;
+  border: 1px solid #162b2a;
+  box-sizing: border-box;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  color: #162b2a;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  font-variant: small-caps;
+}
+
+.secondary:hover {
+  background-color: #99c5d8;
+  border: 1px solid #162b2a;
+  color: #162b2a;
 }
 
 /* ------- Cancel button ------- */

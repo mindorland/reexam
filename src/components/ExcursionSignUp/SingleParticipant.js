@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
-import { queryByTitle } from "@testing-library/react";
-import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
+import "../../OurStyle.css";
 
 export default function SingleParticipant(props) {
   const [name, setName] = useState();
@@ -26,7 +25,6 @@ export default function SingleParticipant(props) {
     in two different classes. 
     - Duties, and Participants. 
     */
-    const currentUser = Parse.User.current(); //get current user
 
     const Duties = Parse.Object.extend("Duties");
     const dutyQuery = new Parse.Query(Duties); // find the duty type according to favored duty user chose.
@@ -35,14 +33,6 @@ export default function SingleParticipant(props) {
     console.log(myDuty);
 
     participant.set("parent", myDuty); //Add the duty as a value in the participant.
-    // const oldCandidates = await myDuty.get("candidates")
-    // myDuty.set("candidates", [...oldCandidates, currentUser]) //updating duty's candidates.
-    // if (await myDuty.get("candidates")) { // if candidates is not empty(null)
-    //     const oldCandidates = await myDuty.get("candidates")
-    //     myDuty.set("candidates", [...oldCandidates, currentUser]) //updating duty's candidates.
-    // } else {
-    //     myDuty.set("candidates", currentUser)
-    // }
 
     participant
       .save() // This saves both duty and participant
@@ -70,96 +60,102 @@ export default function SingleParticipant(props) {
   }
 
   return (
-    <div className="page-content flex-parent jc-center">
-      <Form>
-        <div class="flex-parent jc-center">
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label className="emph-body">Name</Form.Label>
-            <Form.Control
-              className="narrow-textfield"
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-              placeholder={Parse.User.current().get("name")} //to show the current user's name automatically
-              autoFocus
-            />
-          </Form.Group>
-
-          <Form.Label className="emph-body">Age Group</Form.Label>
-          <div key={`inline-radio`} className="mb-3">
-            <Form.Check
-              inline
-              type="radio"
-              id={`default-radio`}
-              name="agegroup"
-              label="Adult"
-              value="adult"
-              onChange={(e) => setAgegroup(e.target.value)}
-            />
-            <Form.Check
-              inline
-              type="radio"
-              id={`default-radio`}
-              name="agegroup"
-              label="Child"
-              value="child"
-              onChange={(e) => setAgegroup(e.target.value)}
-            />
+    <div className="pageContent">
+      <div>
+        <Form className="single-participant-form">
+          <div className="single-participant-form-name">
+            <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                className="narrow-textfield"
+                type="text"
+                onChange={(e) => setName(e.target.value)}
+                placeholder={Parse.User.current().get("name")} //to show the current user's name automatically
+                autoFocus
+              />
+            </Form.Group>
           </div>
-        </div>
-        {agegroup === "adult" && ( //inline conditional rendering
-          <>
-            <Form.Label>Preferred Duties</Form.Label>
-            <p>
-              Please select your favorite type of work. You will get to know
-              what you are assigned later.
-            </p>
-            <DropdownButton
-              id="dropdown-basic"
-              title="Select Favorite Duty"
-              onSelect={handleSelect}
-              autoClose={false}
-            >
-              <Dropdown.Item href="#/action-1" eventKey="cleaning">
-                Cleaning
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-2" eventKey="cooking">
-                Cooking
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-3" eventKey="settingATable">
-                Setting a table
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-4" eventKey="makingCoffeeTea">
-                Making coffee/tea
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-5" eventKey="shopping">
-                Shopping
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-6" eventKey="playingMusic">
-                Playing Music
-              </Dropdown.Item>
-            </DropdownButton>
-          </>
-        )}
-        <div>
-          <Button
-            className="primary-button"
-            onClick={handleRegister}
-            variant="primary"
-            type="submit"
-          >
-            Save
-          </Button>
-          <Button
-            className="primary-button"
-            onClick={addParticipant}
-            disabled={!saved}
-            type="submit"
-          >
-            Add family member
-          </Button>
-        </div>
-        <div>{addNew}</div>{" "}
-      </Form>
+          <div>
+            <Form.Label>Age Group</Form.Label>
+            <div key={`inline-radio`} className="mb-3">
+              <Form.Check
+                inline
+                type="radio"
+                id={`default-radio`}
+                name="agegroup"
+                label="Adult"
+                value="adult"
+                onChange={(e) => setAgegroup(e.target.value)}
+              />
+
+              <Form.Check
+                inline
+                type="radio"
+                id={`default-radio`}
+                name="agegroup"
+                label="Child"
+                value="child"
+                onChange={(e) => setAgegroup(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="singleparticipant-form-agegroup">
+            {agegroup === "adult" && ( //inline conditional rendering
+              <>
+                <Form.Label>Preferred Duties</Form.Label>
+                <p>
+                  Please select your favorite type of work. You will get to know
+                  what you are assigned later.
+                </p>
+                <DropdownButton
+                  id="dropdown-basic"
+                  title="Select Favorite Duty"
+                  onSelect={handleSelect}
+                  autoClose={false}
+                >
+                  <Dropdown.Item href="#/action-1" eventKey="cleaning">
+                    Cleaning
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-2" eventKey="cooking">
+                    Cooking
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-3" eventKey="settingATable">
+                    Setting a table
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-4" eventKey="makingCoffeeTea">
+                    Making coffee/tea
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-5" eventKey="shopping">
+                    Shopping
+                  </Dropdown.Item>
+                  <Dropdown.Item href="#/action-6" eventKey="playingMusic">
+                    Playing Music
+                  </Dropdown.Item>
+                </DropdownButton>
+              </>
+            )}
+          </div>
+        </Form>
+      </div>
+      <div className="single-participant-form-btn-wrapper">
+        <Button
+          className="primary-button"
+          onClick={handleRegister}
+          variant="primary"
+          type="submit"
+        >
+          Save
+        </Button>
+        <Button
+          className="secondary"
+          onClick={addParticipant}
+          disabled={!saved}
+          type="submit"
+        >
+          Add family member
+        </Button>
+        <div>{addNew}</div>
+      </div>
     </div>
   );
 }

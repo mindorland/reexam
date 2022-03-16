@@ -3,8 +3,8 @@ import InfoWrite from "../components/ExcursionInfo/InfoWrite";
 import InfoRead from "../components/ExcursionInfo/InfoRead";
 import Parse from "parse/dist/parse.min.js";
 import { useEffect, useState } from "react";
-
 import "../OurStyle.css";
+import SingleParticipant from "../components/ExcursionSignUp/SingleParticipant";
 
 function Excursion() {
   const currentUser = Parse.User.current(); //get current user
@@ -30,6 +30,7 @@ function Excursion() {
       {username !== "admin" ? (
         <>
           <InfoRead />
+          <SingleParticipant />
         </>
       ) : (
         <InfoWrite />

@@ -24,41 +24,45 @@ export default function Login(props) {
   return (
     <div className="pageContent">
       <div className="login-container">
-        <h1 className="header">Login</h1>
-        <Form>
-          <div classname="login-cointainer">
-            <Form.Group controlId="formBasicUsername">
-              <Form.Label className="emph-body">Username</Form.Label>
-              <Form.Control
-                className="narrow-textfield"
-                type="text"
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
-                autoFocus
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-              <Form.Label className="emph-body">Password</Form.Label>
-              <Form.Control
-                className="narrow-textfield"
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-              />
-            </Form.Group>
-            <Button
-              className="primary-button"
-              onClick={handleLoginAttempt}
-              type="submit"
-            >
-              submit
-            </Button>{" "}
-            <p className="emph-body">
-              Don't have an account?
-              <Link to="/signup"> Create one!</Link>
-            </p>
-          </div>
-        </Form>
+        <div>
+          <h1 className="header">Login</h1>{" "}
+        </div>{" "}
+        <div>
+          <Form className="login-form">
+            <div classname="login-cointainer">
+              <Form.Group controlId="formBasicUsername">
+                <Form.Label className="emph-body">Username</Form.Label>
+                <Form.Control
+                  className="narrow-textfield"
+                  type="text"
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Username"
+                  autoFocus
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label className="emph-body">Password</Form.Label>
+                <Form.Control
+                  className="narrow-textfield"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                />
+              </Form.Group>
+              <Button
+                className="primary-button"
+                onClick={handleLoginAttempt}
+                type="submit"
+              >
+                login
+              </Button>
+              <p className="emph-body no-account">
+                Don't have an account?
+                <Link to="/signup"> Create one!</Link>
+              </p>
+            </div>
+          </Form>
+        </div>
       </div>
     </div>
   );

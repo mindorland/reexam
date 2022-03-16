@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
@@ -10,17 +10,14 @@ import Driver from "./pages/Cars/Driver";
 import Rider from "./pages/Cars/Rider";
 import DriverStatus from "./pages/Cars/DriverStatus";
 import DriverCompleteStatus from "./pages/Cars/DriverCompleteStatus";
-//import RiderStatus from "./pages/Cars/RiderStatus";
 import Shopping from "./pages/Shopping";
 import Excursion from "./pages/Excursion";
-import Parse from "parse/dist/parse.min.js";
-import { useState, useEffect } from "react";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        /* <Navbar /> */
+        <Navbar />
         <Routes>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

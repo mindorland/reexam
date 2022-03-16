@@ -1,35 +1,16 @@
 import React from "react";
 import { useState } from "react";
-import {
-  Button,
-  Form,
-  Dropdown,
-  DropdownButton,
-  ListGroup,
-  Card,
-  ListGroupItem,
-} from "react-bootstrap";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { ListGroup, Card, ListGroupItem } from "react-bootstrap";
 import Parse from "parse/dist/parse.min.js";
 import { useEffect } from "react";
 import RequestCancelBtn from "../../components/Buttons/RequestCancelBtn";
-import "/Users/kdawg/Documents/School/reexam/src/OurStyle.css";
+import "../../OurStyle.css";
 
 function Rider() {
   const [requests, sestRequests] = useState();
-  const [status, setStatus] = useState("requested");
-  const navigate = useNavigate();
   const [drives, setDrives] = useState();
   const [drivers, setDrivers] = useState();
-  const [isRequested, setIsRequested] = useState(false);
-  const [requestDisable, setRequestDisable] = useState(false);
-  const [cancelDisable, setCancelDisable] = useState(false);
-  //const [currentUser, setCurrentUser] = useState(Parse.User.current())
 
-  const requestsValue = Number(requests); //to convert data value to Number
-
-  //to reload the page with the avilable rides info
   useEffect(() => {
     if (!drives) {
       getDrives();
@@ -52,8 +33,6 @@ function Rider() {
     console.log(results[0].get("remainingSeats"));
     console.log(results[0].id);
     console.log(results[0].get("driver").id);
-    // console.log(drivers[0])
-    // console.log(drivers.get(results[0].get("driver").id).username)
   };
 
   const getDrivers = async () => {
@@ -67,8 +46,6 @@ function Rider() {
   };
 
   const handleRequest = (id) => {
-    //setIsRequested(isRequested => !isRequested)
-    // setRequestDisable(true)
     console.log(id + " clicked");
     const Drives = new Parse.Object.extend("Drives");
     const query = new Parse.Query(Drives);
@@ -76,10 +53,6 @@ function Rider() {
 
     query.get(id).then(
       (drive) => {
-        // console.log(drive)
-        // const oldRequests = drive.get("requestsFrom")
-        // drive.set("requestsFrom", [...oldRequests, Parse.User.current()])
-        // drive.save()
         console.log(drive);
         console.log(drive.attributes.driver.id);
 
@@ -99,32 +72,24 @@ function Rider() {
   };
 
   const handleCancel = (id) => {
-    // setRequestDisable(false)
     console.log(id + "cancel clicked");
     const Drives = new Parse.Object.extend("Drives");
     const query = new Parse.Query(Drives);
     query.get(id).then(
       (drive) => {
         console.log(drive);
-        // const oldRequests = drive.get("requestFrom")
-        // drive.set("requestsFrom", oldRequests.pop())
-        // drive.save()
       },
       (error) => {
-        console.log("error");
+        console.log("error", error);
       }
     );
   };
-  //     const Drives = new Parse.Object.extend("Drives")
-  //     const query = new Parse.Query(Drives)
-  //     const drive = query.get(id)
-  //     drive.set("requests", Parse.User.current())
-  //   }
-
-  //get all registed drives.
 
   return (
-    <Card style={{ width: "50rem" }} className="card-container">
+    <Card
+      style={{ border: "none", width: "500rem" }}
+      className="card-container"
+    >
       <p className="ptitle flex-parent jc-center">Available rides </p>
       {drivers && (
         <ListGroup
@@ -152,9 +117,6 @@ function Rider() {
           ))}
         </ListGroup>
       )}
-      {/* <Button onClick={handleSave} variant="primary" type="submit">
-        Save Changes
-      </Button> */}
     </Card>
   );
 }

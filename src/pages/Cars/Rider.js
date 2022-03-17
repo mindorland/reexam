@@ -86,35 +86,41 @@ function Rider() {
   };
 
   return (
-    <Card
-      style={{ border: "none", width: "500rem" }}
-      className="card-container"
-    >
-      <p className="ptitle flex-parent">Available rides </p>
-      {drivers && (
-        <ListGroup className="ptitle flex-parent ">
-          {drives.map((drive) => (
-            <ListGroupItem
-              style={{ border: "none" }}
-              className="subtitle picture-margin flex-parent"
-              key={drive.id}
-            >
-              {
-                drivers.find((x) => x.id === drive.get("driver").id).attributes
-                  .name
-              }{" "}
-              shares {drive.get("remainingSeats")} seats.
-              <RequestCancelBtn
-                drive={drive}
+    <div className="single-participant-form">
+      <Card
+        style={{ border: "none", width: "500rem" }}
+        className="card-container"
+      >
+        <div className="single-participant-form"></div>
+        <p className="ptitle flex-parent">Available rides </p>
+        {drivers && (
+          <ListGroup className="ptitle flex-parent" style={{ border: "none" }}>
+            {drives.map((drive) => (
+              <ListGroupItem
+                style={{ border: "none" }}
+                className="subtitle picture-margin flex-parent"
                 key={drive.id}
-                requestRide={handleRequest}
-                cancelRide={handleCancel}
-              />
-            </ListGroupItem>
-          ))}
-        </ListGroup>
-      )}
-    </Card>
+              >
+                {/*               {
+                drivers.find((x) => x.id === drive.get("driver").id)
+                  .name
+              } */}
+                Sombody who's name is unknown is sharing{" "}
+                {drive.get("remainingSeats")} seats.
+                <div className="signup-form-btn-wrapper">
+                  <RequestCancelBtn
+                    drive={drive}
+                    key={drive.id}
+                    requestRide={handleRequest}
+                    cancelRide={handleCancel}
+                  />
+                </div>
+              </ListGroupItem>
+            ))}
+          </ListGroup>
+        )}
+      </Card>
+    </div>
   );
 }
 

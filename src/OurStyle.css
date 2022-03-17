@@ -444,6 +444,19 @@ span {
   margin-top: 10px;
 }
 
+.no-account-text {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  font-style: italic;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+  /* identical to box height, or 112% */
+  color: #162b2a;
+
+  margin-top: 10px;
+}
+
 .single-participant-form {
   width: 100%;
   display: flex;
@@ -452,13 +465,20 @@ span {
 }
 
 .single-participant-form-name {
-  width: 250px;
+  width: fit-content;
   margin-right: 30px;
 }
 
 .single-participant-form-btn-wrapper {
   display: flex;
   gap: 14px;
+  justify-content: center;
+}
+
+.signup-form-btn-wrapper {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
 }
 
 .admin-excursion {
@@ -476,6 +496,14 @@ span {
 
 .picture-margin {
   margin: 10px;
+}
+
+.description-margin {
+  display: flex;
+}
+
+.shopping-pic {
+  margin-left: 30%;
 }
 
 /* ------------ Button CSS ------------ */

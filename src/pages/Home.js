@@ -12,10 +12,10 @@ function Home() {
       </Card.Title>
 
       <Card.Body className="jc-center">
-        <div class="flex-parent jc-center">
+        <div className="flex-parent jc-center">
           <p className="subtitle">Plan your trip with us!</p>
         </div>
-        <div class="flex-parent jc-center">
+        <div className="flex-parent jc-center">
           <img
             className="picture-margin"
             alt=""
@@ -24,7 +24,7 @@ function Home() {
             src={campfireImage}
           />
         </div>
-        <div class="flex-parent jc-center">
+        <div className="flex-parent jc-center">
           <img
             className="picture-margin"
             alt=""

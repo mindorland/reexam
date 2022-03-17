@@ -39,13 +39,13 @@ function Cars() {
 
   return (
     <Card style={{ width: "50rem" }} className="card-container jc-center">
-      <div class="flex-parent jc-center">
+      <div className="flex-parent jc-center">
         <Card.Title className="header1">
           Are you a driver or a rider for the excursion?
         </Card.Title>
       </div>
       <Card.Body className="jc-center">
-        <div class="flex-parent jc-center">
+        <div className="flex-parent jc-center">
           <Button
             className="car-button"
             onClick={handleDriverClick}

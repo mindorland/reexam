@@ -46,8 +46,10 @@ export default function SignUp() {
     <div className="pageContent">
       <div>
         <div className="login-container">
-          <h1 className="header">Sign Up</h1>
-          <Form>
+          <div>
+            <h1 className="header">Sign Up</h1>
+          </div>
+          <Form className="single-participant-form">
             <div className="single-participant-form-name">
               <Form.Group className="mb-3" controlId="formBasicUsrname">
                 <Form.Label className="emph-body">Username </Form.Label>
@@ -89,11 +91,11 @@ export default function SignUp() {
                   placeholder="Enter email"
                 />
               </Form.Group>
-              <div className="jc-center flex-parent">
-                <Button className="primary-button" onClick={createAccount}>
-                  create account
-                </Button>
-              </div>
+            </div>
+            <div className="signup-form-btn-wrapper">
+              <Button className="primary-button" onClick={createAccount}>
+                create account
+              </Button>
             </div>
           </Form>
         </div>

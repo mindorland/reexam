@@ -23,14 +23,14 @@ export default function Login(props) {
 
   return (
     <div className="pageContent">
-      <div className="login-container">
-        <div>
-          <h1 className="header">Login</h1>{" "}
-        </div>{" "}
-        <div>
-          <Form className="login-form">
-            <div classname="login-cointainer">
-              <Form.Group controlId="formBasicUsername">
+      <div>
+        <div className="login-container">
+          <div>
+            <h1 className="header">Login</h1>{" "}
+          </div>
+          <Form className="single-participant-form">
+            <div className="single-participant-form-name">
+              <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Label className="emph-body">Username</Form.Label>
                 <Form.Control
                   className="narrow-textfield"
@@ -40,7 +40,7 @@ export default function Login(props) {
                   autoFocus
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label className="emph-body">Password</Form.Label>
                 <Form.Control
                   className="narrow-textfield"
@@ -48,7 +48,9 @@ export default function Login(props) {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Password"
                 />
-              </Form.Group>
+              </Form.Group>{" "}
+            </div>
+            <div className="signup-form-btn-wrapper">
               <Button
                 className="primary-button"
                 onClick={handleLoginAttempt}
@@ -56,7 +58,9 @@ export default function Login(props) {
               >
                 login
               </Button>
-              <p className="emph-body no-account">
+            </div>
+            <div>
+              <p className="no-account-text no-account">
                 Don't have an account?
                 <Link to="/signup"> Create one!</Link>
               </p>
